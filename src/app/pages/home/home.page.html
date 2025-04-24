@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{'HOME_PAGE.TITLE' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content scrollX="true" class="horizontal-strip">
+    <div class="date-strip">
+      <app-progress-ring
+        *ngFor="let day of dates()"
+        [progress]="day.progress"
+        [label]="(day.date | date:'d') ?? ''"
+        [size]="60"
+        [selected]="day.selected()"
+        (selectedChange)="onSelect(day.date)"
+      />
+    </div>
+  </ion-content>
+</ion-content>

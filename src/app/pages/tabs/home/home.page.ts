@@ -1,21 +1,20 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  computed,
-  OnInit,
-  Signal,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TYPEFORM_FORMS } from '@app-core';
 import {
+  IonButton,
+  IonButtons,
   IonContent,
   IonHeader,
+  IonIcon,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProgressRingComponent } from 'app/components/progress-ring/progress-ring.component';
+import { SurveyComponent } from 'app/shared/components/survey/survey.component';
+import { addIcons } from 'ionicons';
+import { person } from 'ionicons/icons';
 
 // TODO: move to models
 interface DateWithProgress {
@@ -37,11 +36,19 @@ interface DateWithProgress {
     CommonModule,
     FormsModule,
     TranslateModule,
-    ProgressRingComponent,
+    SurveyComponent,
+    IonButtons,
+    IonButton,
+    IonIcon,
   ],
 })
 export class HomePage implements OnInit {
   dates = signal<DateWithProgress[]>([]);
+  TYPEFORM_FORMS = TYPEFORM_FORMS;
+
+  constructor() {
+    addIcons({ person });
+  }
 
   ngOnInit() {
     this.generateDates();

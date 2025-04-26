@@ -1,0 +1,8 @@
+<div #typeformContainer class="typeform-wrapper"></div>
+
+@if(submittedAnswers){
+<div class="result-box">
+  <h2>Submission Received</h2>
+  <pre>{{ submittedAnswers | json }}</pre>
+</div>
+}

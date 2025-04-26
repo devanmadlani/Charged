@@ -23,7 +23,8 @@
     "paths": {
       "@translations": ["i18n"],
       "@app-core": ["app/core"],
-      "@models/*": ["app/models/*"]
+      "@models/*": ["app/models/*"],
+      "@env/*": ["environments/*"]
     }
   },
   "angularCompilerOptions": {

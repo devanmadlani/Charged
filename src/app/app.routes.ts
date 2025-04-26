@@ -16,15 +16,23 @@ export const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.routes').then((m) => m.tabsRoutes),
+    loadChildren: () =>
+      import('./pages/tabs/tabs.routes').then((m) => m.tabsRoutes),
     canActivate: [roleGuard],
     data: { allowedRoles: ['admin', 'user'] },
   },
   {
     path: 'admin',
     loadChildren: () =>
-      import('./admin/admin.routes').then((m) => m.tabsRoutes),
+      import('./admin/admin.routes').then((m) => m.adminRoutes),
     canActivate: [roleGuard],
     data: { allowedRoles: ['admin'] },
+  },
+  {
+    path: 'onboarding',
+    loadComponent: () =>
+      import('./pages/onboarding/onboarding.page').then(
+        (m) => m.OnboardingPage
+      ),
   },
 ];

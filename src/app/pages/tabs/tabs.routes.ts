@@ -8,13 +8,12 @@ export const tabsRoutes: Routes = [
     children: [
       {
         path: 'home',
-        loadComponent: () =>
-          import('../pages/home/home.page').then((m) => m.HomePage),
+        loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
       },
       {
         path: 'settings',
         loadComponent: () =>
-          import('../pages/settings/settings.page').then((m) => m.SettingsPage),
+          import('./settings/settings.page').then((m) => m.SettingsPage),
       },
       {
         path: '',

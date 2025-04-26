@@ -1,19 +1,24 @@
 import { Routes } from '@angular/router';
-import { UsersPage } from './users/users.page';
+import { AdminPage } from './admin.page';
 
-export const tabsRoutes: Routes = [
+export const adminRoutes: Routes = [
   {
     path: '',
-    component: UsersPage,
+    component: AdminPage,
     children: [
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
+      },
       {
         path: 'users',
         loadComponent: () =>
-          import('../pages/home/home.page').then((m) => m.HomePage),
+          import('./users/users.page').then((m) => m.UsersPage),
       },
       {
         path: '',
-        redirectTo: 'users',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
       },
     ],

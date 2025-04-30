@@ -12,5 +12,9 @@ export class AppComponent {
 
   constructor() {
     this.translate.init();
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark-theme') {
+      document.body.classList.add('dark-theme');
+    }
   }
 }

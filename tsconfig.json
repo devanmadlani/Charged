@@ -23,6 +23,7 @@
     "paths": {
       "@translations": ["i18n"],
       "@app-core": ["app/core"],
+      "@shared": ["app/shared"],
       "@models/*": ["app/models/*"],
       "@env/*": ["environments/*"]
     }

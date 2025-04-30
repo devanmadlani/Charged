@@ -1,20 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>{{'HOME_PAGE.TITLE' | translate}}</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="person"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">home</ion-title>
+      <ion-title>{{'HOME_PAGE.TITLE' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-survey [formId]="TYPEFORM_FORMS.feedback.id"></app-survey>
+  <div class="horizontal-strip">
+    <div class="date-strip">
+      <app-progress-ring
+        *ngFor="let day of dates()"
+        [progress]="day.progress"
+        [label]="(day.date | date:'d') ?? ''"
+        [size]="60"
+        [selected]="day.selected()"
+        (selectedChange)="onSelect(day.date)"
+      >
+      </app-progress-ring>
+    </div>
+  </div>
 </ion-content>

@@ -1,13 +1,84 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>onboarding</ion-title>
+    @if (currentStepIndex() > 0) {
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="previous()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        {{'ONBOARDING_PAGE.BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    }
+
+    <ion-title>{{'ONBOARDING_PAGE.START_YOUR_JOURNEY' | translate}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="skip()">Skip</ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
+  <ion-progress-bar [value]="progress()"></ion-progress-bar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">onboarding</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="custom-content" fullscreen="true">
+  <div class="page-container">
+    @switch(currentStep()) { @case(OnboardingStep.One) {
+    <div class="top-section">
+      <div class="centered">
+        <ion-icon name="person-outline" class="main-icon"></ion-icon>
+
+        <div class="bottom-text">
+          <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
+
+          <p class="description">
+            {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
+          </p>
+
+          <div class="success-text">
+            <ion-icon
+              name="checkmark-circle-outline"
+              color="success"
+            ></ion-icon>
+            <span
+              >{{'ONBOARDING_PAGE.SCAN_TRACKERS_STICK_TO_HABIT' |
+              translate}}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    } @case(OnboardingStep.Two) {
+    <div class="centered">
+      <h2>Two</h2>
+    </div>
+    } @case(OnboardingStep.Three) {
+    <div class="centered">
+      <h2>Three</h2>
+    </div>
+    } @case(OnboardingStep.Final) {
+    <div class="centered">
+      <app-survey [formId]="TYPEFORM_FORMS.feedback.id"></app-survey>
+    </div>
+    } } @if(currentStep()!== OnboardingStep.Final) {
+    <div class="bottom-section">
+      <ion-button
+        class="rounded-button"
+        expand="block"
+        shape="round"
+        (click)="next()"
+      >
+        @if (currentStep() === OnboardingStep.Final) { Finish } @else { Continue
+        }
+      </ion-button>
+
+      <ion-button
+        class="rounded-button"
+        fill="clear"
+        class="later-button"
+        (click)="skip()"
+      >
+        {{'ONBOARDING_PAGE.DO_IT_LATER' | translate}}
+      </ion-button>
+    </div>
+    }
+  </div>
 </ion-content>

@@ -1,0 +1,242 @@
+{
+  "backgroundWhite": {
+    "value": "#ffffff"
+  },
+  "backgroundBlack": {
+    "value": "#1f1f1f"
+  },
+  "backgroundFullWhite": {
+    "value": "#ffffff"
+  },
+  "backgroundFullBlack": {
+    "value": "#121212"
+  },
+  "primaryBase": {
+    "value": "#1f9eff"
+  },
+  "primaryShade": {
+    "value": "#0068b8"
+  },
+  "primaryTint": {
+    "value": "#80c8ff"
+  },
+  "secondaryBase": {
+    "value": "#711aff"
+  },
+  "secondaryShade": {
+    "value": "#4400b2"
+  },
+  "secondaryTint": {
+    "value": "#b080ff"
+  },
+  "tertiaryBase": {
+    "value": "#002e52"
+  },
+  "tertiaryShade": {
+    "value": "#002038"
+  },
+  "tertiaryTint": {
+    "value": "#0068b8"
+  },
+  "successBase": {
+    "value": "#4fcc4d"
+  },
+  "successShade": {
+    "value": "#2a8b28"
+  },
+  "successTint": {
+    "value": "#9de39c"
+  },
+  "warningBase": {
+    "value": "#f8d821"
+  },
+  "warningShade": {
+    "value": "#ad9406"
+  },
+  "warningTint": {
+    "value": "#fbe984"
+  },
+  "dangerBase": {
+    "value": "#f12828"
+  },
+  "dangerShade": {
+    "value": "#a70b0b"
+  },
+  "dangerTint": {
+    "value": "#f08d8d"
+  },
+  "lightBase": {
+    "value": "#f2f2f2"
+  },
+  "lightShade": {
+    "value": "#d7d7d7"
+  },
+  "lightTint": {
+    "value": "#ffffff"
+  },
+  "mediumBase": {
+    "value": "#888888"
+  },
+  "mediumShade": {
+    "value": "#6e6e6e"
+  },
+  "mediumTint": {
+    "value": "#a3a3a3"
+  },
+  "darkBase": {
+    "value": "#393939"
+  },
+  "darkShade": {
+    "value": "#1f1f1f"
+  },
+  "darkTint": {
+    "value": "#545454"
+  },
+  "textColorSteps50": {
+    "value": "#ffffff"
+  },
+  "textColorSteps100": {
+    "value": "#f2f2f2"
+  },
+  "textColorSteps150": {
+    "value": "#e6e6e6"
+  },
+  "textColorSteps200": {
+    "value": "#d7d7d7"
+  },
+  "textColorSteps250": {
+    "value": "#cacaca"
+  },
+  "textColorSteps300": {
+    "value": "#bdbdbd"
+  },
+  "textColorSteps350": {
+    "value": "#b0b0b0"
+  },
+  "textColorSteps400": {
+    "value": "#a3a3a3"
+  },
+  "textColorSteps450": {
+    "value": "#969696"
+  },
+  "textColorSteps500": {
+    "value": "#888888"
+  },
+  "textColorSteps550": {
+    "value": "#7b7b7b"
+  },
+  "textColorSteps600": {
+    "value": "#6e6e6e"
+  },
+  "textColorSteps650": {
+    "value": "#616161"
+  },
+  "textColorSteps700": {
+    "value": "#545454"
+  },
+  "textColorSteps750": {
+    "value": "#474747"
+  },
+  "textColorSteps800": {
+    "value": "#393939"
+  },
+  "textColorSteps850": {
+    "value": "#2c2c2c"
+  },
+  "textColorSteps900": {
+    "value": "#1f1f1f"
+  },
+  "textColorSteps950": {
+    "value": "#121212"
+  },
+  "textWhite": {
+    "value": "#f2f2f2"
+  },
+  "textBlack": {
+    "value": "#1f1f1f"
+  },
+  "textFullWhite": {
+    "value": "#ffffff"
+  },
+  "textFullBlack": {
+    "value": "#121212"
+  },
+  "backgroundColorSteps50": {
+    "value": "#ffffff"
+  },
+  "backgroundColorSteps100": {
+    "value": "#f2f2f2"
+  },
+  "backgroundColorSteps150": {
+    "value": "#e6e6e6"
+  },
+  "backgroundColorSteps200": {
+    "value": "#d7d7d7"
+  },
+  "backgroundColorSteps250": {
+    "value": "#cacaca"
+  },
+  "backgroundColorSteps300": {
+    "value": "#bdbdbd"
+  },
+  "backgroundColorSteps350": {
+    "value": "#b0b0b0"
+  },
+  "backgroundColorSteps400": {
+    "value": "#a3a3a3"
+  },
+  "backgroundColorSteps450": {
+    "value": "#969696"
+  },
+  "backgroundColorSteps500": {
+    "value": "#888888"
+  },
+  "backgroundColorSteps550": {
+    "value": "#7b7b7b"
+  },
+  "backgroundColorSteps600": {
+    "value": "#6e6e6e"
+  },
+  "backgroundColorSteps650": {
+    "value": "#616161"
+  },
+  "backgroundColorSteps700": {
+    "value": "#545454"
+  },
+  "backgroundColorSteps750": {
+    "value": "#474747"
+  },
+  "backgroundColorSteps800": {
+    "value": "#393939"
+  },
+  "backgroundColorSteps850": {
+    "value": "#2c2c2c"
+  },
+  "backgroundColorSteps900": {
+    "value": "#1f1f1f"
+  },
+  "backgroundColorSteps950": {
+    "value": "#121212"
+  },
+  "textSupportLightGrayCustom": {
+    "value": "#a3a3a3"
+  },
+  "textSupportDarkGrayCustom": {
+    "value": "#6e6e6e"
+  },
+  "textLinkCustom": {
+    "value": "#0068b8"
+  },
+  "veryGood": {
+    "value": "#1e631c"
+  },
+  "good": {
+    "value": "#36b233"
+  },
+  "average": {
+    "value": "#1f9eff"
+  },
+  "critical": {
+    "value": "#f1a208"
+  }
+}

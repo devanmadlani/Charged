@@ -12,7 +12,7 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { SurveyComponent } from 'app/shared/components/survey/survey.component';
+import { ProgressRingComponent } from '@shared';
 import { addIcons } from 'ionicons';
 import { person } from 'ionicons/icons';
 
@@ -36,15 +36,14 @@ interface DateWithProgress {
     CommonModule,
     FormsModule,
     TranslateModule,
-    SurveyComponent,
     IonButtons,
     IonButton,
     IonIcon,
+    ProgressRingComponent,
   ],
 })
 export class HomePage implements OnInit {
   dates = signal<DateWithProgress[]>([]);
-  TYPEFORM_FORMS = TYPEFORM_FORMS;
 
   constructor() {
     addIcons({ person });

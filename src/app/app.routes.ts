@@ -5,7 +5,7 @@ import { redirectGuard } from '@app-core';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'onboarding',
     pathMatch: 'full',
   },
   {

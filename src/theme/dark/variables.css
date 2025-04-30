@@ -1,0 +1,87 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 30 Apr 2025 13:22:14 GMT
+ */
+
+:root {
+  --background-white: #1f1f1f;
+  --background-black: #ffffff;
+  --background-full-white: #121212;
+  --background-full-black: #ffffff;
+  --primary-base: #2a9cf3;
+  --primary-shade: #1265a5;
+  --primary-tint: #86c7f8;
+  --secondary-base: #711aff;
+  --secondary-shade: #4608a9;
+  --secondary-tint: #b186f8;
+  --tertiary-base: #082d49;
+  --tertiary-shade: #051f32;
+  --tertiary-tint: #1265a5;
+  --success-base: #5bbe5a;
+  --success-shade: #338032;
+  --success-tint: #a4dba3;
+  --warning-base: #ebcf2d;
+  --warning-shade: #a38d0f;
+  --warning-tint: #eddf91;
+  --danger-base: #e43434;
+  --danger-shade: #9d1414;
+  --danger-tint: #f08d8d;
+  --light-base: #1f1f1f;
+  --light-shade: #121212;
+  --light-tint: #2c2c2c;
+  --medium-base: #a3a3a3;
+  --medium-shade: #6e6e6e;
+  --medium-tint: #888888;
+  --dark-base: #d7d7d7;
+  --dark-shade: #bdbdbd;
+  --dark-tint: #f2f2f2;
+  --text-color-steps50: #121212;
+  --text-color-steps100: #1f1f1f;
+  --text-color-steps150: #2c2c2c;
+  --text-color-steps200: #393939;
+  --text-color-steps250: #474747;
+  --text-color-steps300: #545454;
+  --text-color-steps350: #616161;
+  --text-color-steps400: #6e6e6e;
+  --text-color-steps450: #7b7b7b;
+  --text-color-steps500: #888888;
+  --text-color-steps550: #969696;
+  --text-color-steps600: #a3a3a3;
+  --text-color-steps650: #b0b0b0;
+  --text-color-steps700: #bdbdbd;
+  --text-color-steps750: #cacaca;
+  --text-color-steps800: #d7d7d7;
+  --text-color-steps850: #e6e6e6;
+  --text-color-steps900: #f2f2f2;
+  --text-color-steps950: #ffffff;
+  --text-white: #1f1f1f;
+  --text-black: #f2f2f2;
+  --text-full-white: #121212;
+  --text-full-black: #ffffff;
+  --background-color-steps50: #121212;
+  --background-color-steps100: #1f1f1f;
+  --background-color-steps150: #2c2c2c;
+  --background-color-steps200: #393939;
+  --background-color-steps250: #474747;
+  --background-color-steps300: #545454;
+  --background-color-steps350: #616161;
+  --background-color-steps400: #6e6e6e;
+  --background-color-steps450: #7b7b7b;
+  --background-color-steps500: #888888;
+  --background-color-steps550: #969696;
+  --background-color-steps600: #a3a3a3;
+  --background-color-steps650: #b0b0b0;
+  --background-color-steps700: #bdbdbd;
+  --background-color-steps750: #cacaca;
+  --background-color-steps800: #d7d7d7;
+  --background-color-steps850: #e6e6e6;
+  --background-color-steps900: #f2f2f2;
+  --background-color-steps950: #ffffff;
+  --text-support-light-gray-custom: #6e6e6e;
+  --text-support-dark-gray-custom: #a3a3a3;
+  --text-link-custom: #1265a5;
+  --very-good: #255b23;
+  --good: #42a440;
+  --average: #2a9cf3;
+  --critical: #e59e13;
+}

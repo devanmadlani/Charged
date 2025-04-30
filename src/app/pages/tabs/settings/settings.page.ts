@@ -4,13 +4,16 @@ import { TranslationService } from '@app-core';
 import {
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonProgressBar,
   IonSelect,
   IonSelectOption,
   IonTitle,
-  IonToolbar,
-  IonItem,
-  IonLabel,
   IonToggle,
+  IonToolbar,
+  IonButton,
+  IonIcon,
 } from '@ionic/angular/standalone';
 import { SupportedLang } from '@models/language.model';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,6 +24,9 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   imports: [
+    IonIcon,
+    IonButton,
+    IonProgressBar,
     CommonModule,
     IonContent,
     IonHeader,
@@ -39,7 +45,7 @@ export class SettingsPage {
 
   currentLang = this.ts.getActiveLanguage();
   availableLangs = this.ts.getAvailableLanguages();
-  isDark = localStorage.getItem('theme') === 'dark';
+  isDark = localStorage.getItem('theme') === 'dark-theme';
 
   changeLang(lang: SupportedLang) {
     this.ts.setActiveLanguage(lang);
@@ -48,7 +54,7 @@ export class SettingsPage {
 
   toggleDarkMode(event: any) {
     this.isDark = event.detail.checked;
-    document.body.classList.toggle('dark', this.isDark);
-    localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+    document.body.classList.toggle('dark-theme', this.isDark);
+    localStorage.setItem('theme', this.isDark ? 'dark-theme' : 'light-theme');
   }
 }

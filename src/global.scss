@@ -147,3 +147,28 @@ body.dark-theme {
 ion-button {
   text-transform: none;
 }
+
+.page-header-bg {
+  background-color: #0d2c56;
+  color: white;
+  padding: 16px;
+  padding-bottom: 120px;
+}
+
+.avatar-initial {
+  background-color: #2d4d74;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.floating-main-content {
+  margin-top: -125px;
+  position: relative;
+  z-index: 1;
+}

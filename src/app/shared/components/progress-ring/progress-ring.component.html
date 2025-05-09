@@ -4,22 +4,20 @@
     [attr.height]="size()"
     [attr.viewBox]="'0 0 ' + size() + ' ' + size()"
   >
-    <!-- Background ring -->
     <circle
       [attr.cx]="center()"
       [attr.cy]="center()"
       [attr.r]="radius"
-      stroke="#e0e0e0"
+      [attr.stroke]="baseRingColor()"
       [attr.stroke-width]="strokeWidth"
       fill="none"
     />
 
-    <!-- Progress ring -->
     <circle
       [attr.cx]="center()"
       [attr.cy]="center()"
       [attr.r]="radius"
-      [attr.stroke]="ringColor()"
+      [attr.stroke]="progressColor()"
       [attr.stroke-width]="strokeWidth"
       fill="none"
       stroke-linecap="round"
@@ -28,7 +26,6 @@
       [attr.transform]="'rotate(-90 ' + center() + ' ' + center() + ')'"
     />
 
-    <!-- Center label (number) -->
     <text
       [attr.x]="center()"
       [attr.y]="center() + 5"
@@ -41,7 +38,6 @@
     </text>
   </svg>
 
-  <!-- Month below -->
   <div class="month-label">
     {{ month() }}
   </div>

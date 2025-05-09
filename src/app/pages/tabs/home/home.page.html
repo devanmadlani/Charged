@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>{{'HOME_PAGE.TITLE' | translate}}</ion-title>
   </ion-toolbar>
@@ -12,6 +12,24 @@
   </ion-header>
 
   <div class="horizontal-strip">
+    <div class="date-strip"></div>
+  </div>
+</ion-content> -->
+
+<ion-content [fullscreen]="true">
+  <div class="page-header-bg">
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-text color="light">
+        <h2 class="ion-no-margin">Scan</h2>
+      </ion-text>
+      <ion-avatar>
+        <ion-label class="avatar-initial">T</ion-label>
+      </ion-avatar>
+    </ion-row>
+  </div>
+
+  <div class="floating-main-content">
+    <app-score-progress-bar [score]="70"></app-score-progress-bar>
     <div class="date-strip">
       <app-progress-ring
         *ngFor="let day of dates()"

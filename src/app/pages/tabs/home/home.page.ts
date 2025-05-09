@@ -1,18 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TYPEFORM_FORMS } from '@app-core';
 import {
+  IonAvatar,
   IonButton,
   IonButtons,
   IonContent,
+  IonGrid,
   IonHeader,
   IonIcon,
+  IonLabel,
+  IonRow,
   IonTitle,
   IonToolbar,
+  IonText,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProgressRingComponent } from '@shared';
+import { ProgressRingComponent, ScoreProgressBarComponent } from '@shared';
 import { addIcons } from 'ionicons';
 import { person } from 'ionicons/icons';
 
@@ -29,6 +33,11 @@ interface DateWithProgress {
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
+    IonText,
+    IonAvatar,
+    IonLabel,
+    IonRow,
+    IonGrid,
     IonContent,
     IonHeader,
     IonTitle,
@@ -40,6 +49,7 @@ interface DateWithProgress {
     IonButton,
     IonIcon,
     ProgressRingComponent,
+    ScoreProgressBarComponent,
   ],
 })
 export class HomePage implements OnInit {

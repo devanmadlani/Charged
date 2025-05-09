@@ -33,11 +33,18 @@ export class ProgressRingComponent {
     return `${dash} ${this.circumference()}`;
   });
 
-  readonly ringColor = computed(() => {
+  readonly baseRingColor = computed(() => {
     const val = this.progress();
-    if (val <= 40) return '#f44336'; // Red
-    if (val <= 70) return '#ff9800'; // Orange
-    return '#4caf50'; // Green
+    if (val <= 40) return '#fdecea'; // light red
+    if (val <= 70) return '#fff3e0'; // light orange
+    return '#e8f5e9'; // light green
+  });
+
+  readonly progressColor = computed(() => {
+    const val = this.progress();
+    if (val <= 40) return '#f44336'; // bold red
+    if (val <= 70) return '#ff9800'; // bold orange
+    return '#4caf50'; // bold green
   });
 
   readonly labelColor = computed(() => (this.selected() ? '#3880ff' : '#000'));

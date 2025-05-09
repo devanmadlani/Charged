@@ -1,0 +1,36 @@
+.score-progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px;
+
+  .score-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .score-value {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .score-bar {
+    height: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .score-subtext {
+    font-size: 12px;
+    opacity: 0.6;
+    margin: 0;
+  }
+}

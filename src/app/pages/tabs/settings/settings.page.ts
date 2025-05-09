@@ -14,6 +14,13 @@ import {
   IonToolbar,
   IonButton,
   IonIcon,
+  IonCol,
+  IonRow,
+  IonCardContent,
+  IonAvatar,
+  IonText,
+  IonCard,
+  IonGrid,
 } from '@ionic/angular/standalone';
 import { SupportedLang } from '@models/language.model';
 import { TranslateModule } from '@ngx-translate/core';
@@ -24,6 +31,13 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   imports: [
+    IonGrid,
+    IonCard,
+    IonText,
+    IonAvatar,
+    IonCardContent,
+    IonRow,
+    IonCol,
     IonIcon,
     IonButton,
     IonProgressBar,

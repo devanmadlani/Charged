@@ -74,6 +74,7 @@ body.dark-theme {
   --ion-text-color: var(--text-black);
   --app-background: var(--background-full-white);
   --app-text-color: var(--text-black);
+  --ion-card-background: var(--background-full-white);
 }
 
 /* Override for dark mode */
@@ -107,6 +108,7 @@ body.dark-theme {
   --ion-text-color: var(--text-white);
   --app-background: var(--background-full-black);
   --app-text-color: var(--text-white);
+  --ion-card-background: var(--background-card-dark, #1e1e1e);
 }
 
 body,
@@ -152,7 +154,7 @@ ion-button {
   background-color: #0d2c56;
   color: white;
   padding: 16px;
-  padding-bottom: 120px;
+  padding-bottom: 180px;
 }
 
 .avatar-initial {
@@ -168,7 +170,7 @@ ion-button {
 }
 
 .floating-main-content {
-  margin-top: -125px;
+  margin-top: -180px;
   position: relative;
   z-index: 1;
 }

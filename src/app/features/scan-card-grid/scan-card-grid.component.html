@@ -1,0 +1,117 @@
+<!-- <ion-grid>
+  <ion-row>
+    <ion-col size="6">
+      <ion-card class="scan-card">
+        <div class="ring-wrapper">
+          <app-progress-ring [progress]="79" [label]="'79'"></app-progress-ring>
+        </div>
+
+        <div class="card-bottom-row">
+          <span class="card-label">Self</span>
+          <ion-icon
+            name="chevron-forward-outline"
+            class="card-arrow"
+          ></ion-icon>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-card class="scan-card">
+        <div class="ring-wrapper">
+          <app-progress-ring
+            [progress]="0"
+            [label]="'heart-outline'"
+          ></app-progress-ring>
+        </div>
+        <div class="card-bottom-row">
+          <span class="card-label">Health</span>
+          <ion-icon
+            name="chevron-forward-outline"
+            class="card-arrow"
+          ></ion-icon>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-card class="scan-card disabled">
+        <div class="ring-wrapper">
+          <app-progress-ring
+            [progress]="0"
+            [label]="'moon-outline'"
+            [disabled]="true"
+          ></app-progress-ring>
+        </div>
+        <div class="card-bottom-row">
+          <span class="card-label">Sleep</span>
+          <ion-icon name="lock-closed-outline" class="card-arrow"></ion-icon>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-card class="scan-card disabled">
+        <div class="ring-wrapper">
+          <app-progress-ring
+            [progress]="0"
+            [label]="'git-network-outline'"
+            [disabled]="true"
+          ></app-progress-ring>
+        </div>
+        <div class="card-bottom-row">
+          <span class="card-label">DNA</span>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-card class="scan-card disabled">
+        <div class="ring-wrapper">
+          <app-progress-ring
+            [progress]="0"
+            [label]="'water-outline'"
+            [disabled]="true"
+          ></app-progress-ring>
+        </div>
+        <div class="card-bottom-row">
+          <span class="card-label">Blood</span>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col size="6"></ion-col>
+  </ion-row>
+</ion-grid> -->
+<ion-grid>
+  <ion-row>
+    @for (card of data(); track card.label) {
+    <ion-col size="6">
+      <ion-card
+        class="scan-card"
+        [class.disabled]="card.disabled"
+        (click)="onCardClick(card)"
+      >
+        <div class="ring-wrapper">
+          <app-progress-ring
+            [progress]="card.progress"
+            [label]="card.iconLabel || card.progress.toString()"
+            [disabled]="card.disabled"
+          >
+          </app-progress-ring>
+        </div>
+
+        <div class="card-bottom-row">
+          <span class="card-label">{{ card.label }}</span>
+          <ion-icon
+            [name]="
+              card.disabled ? 'lock-closed-outline' : 'chevron-forward-outline'
+            "
+            class="card-arrow"
+          ></ion-icon>
+        </div>
+      </ion-card>
+    </ion-col>
+    }
+  </ion-row>
+</ion-grid>

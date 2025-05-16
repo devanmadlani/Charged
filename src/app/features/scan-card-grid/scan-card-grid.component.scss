@@ -1,0 +1,57 @@
+.scan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 160px;
+  border-radius: 16px;
+  padding: 16px;
+
+  background-color: var(--ion-card-background);
+  color: var(--ion-text-color);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  .ring-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  app-progress-ring {
+    width: 88px;
+    height: 88px;
+  }
+
+  .card-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .card-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ion-text-color);
+  }
+
+  .card-arrow {
+    font-size: 18px;
+    color: var(--ion-color-primary, #3880ff);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+}

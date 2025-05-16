@@ -1,53 +1,60 @@
 import {
   Component,
   computed,
-  input,
-  output,
   EventEmitter,
+  input,
   Output,
 } from '@angular/core';
+import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-progress-ring',
   standalone: true,
   templateUrl: './progress-ring.component.html',
   styleUrls: ['./progress-ring.component.scss'],
+  imports: [IonIcon],
 })
 export class ProgressRingComponent {
   progress = input<number>(0);
-  label = input<string>(''); // Day number
-  month = input<string>(''); // Month text (e.g. Jan)
+  label = input<string | number>(''); // accept number or icon name
   selected = input<boolean>(false);
-  size = input<number>(60); // Diameter in px
+  disabled = input<boolean>(false);
 
   @Output() selectedChange = new EventEmitter<void>();
 
-  readonly radius = 25;
-  readonly strokeWidth = 5;
-  readonly center = computed(() => this.size() / 2);
-  readonly circumference = computed(() => 2 * Math.PI * this.radius);
+  readonly radius = 40;
+  readonly strokeWidth = 8;
+  readonly center = 50;
+  readonly circumference = 2 * Math.PI * this.radius;
 
   readonly dashArray = computed(() => {
-    const value = Math.min(100, Math.max(0, this.progress()));
-    const dash = (value / 100) * this.circumference();
-    return `${dash} ${this.circumference()}`;
+    const val = Math.min(100, Math.max(0, this.progress()));
+    const dash = (val / 100) * this.circumference;
+    return `${dash} ${this.circumference}`;
   });
 
   readonly baseRingColor = computed(() => {
+    if (this.disabled()) return '#e0e0e0';
+
     const val = this.progress();
-    if (val <= 40) return '#fdecea'; // light red
-    if (val <= 70) return '#fff3e0'; // light orange
-    return '#e8f5e9'; // light green
+    if (val <= 40) return '#fdecea';
+    if (val <= 70) return '#fff3e0';
+    return '#e8f5e9';
   });
 
   readonly progressColor = computed(() => {
     const val = this.progress();
-    if (val <= 40) return '#f44336'; // bold red
-    if (val <= 70) return '#ff9800'; // bold orange
-    return '#4caf50'; // bold green
+    if (val <= 40) return '#f44336';
+    if (val <= 70) return '#ff9800';
+    return '#4caf50';
   });
 
   readonly labelColor = computed(() => (this.selected() ? '#3880ff' : '#000'));
+
+  readonly isNumberLabel = computed(() => {
+    const value = this.label();
+    return typeof value === 'number' || !isNaN(Number(value));
+  });
 
   onClick() {
     this.selectedChange.emit();

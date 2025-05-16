@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TYPEFORM_FORMS } from '@app-core';
@@ -15,12 +15,6 @@ import {
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { SurveyComponent } from '@shared';
-import { addIcons } from 'ionicons';
-import {
-  arrowBackOutline,
-  checkmarkCircleOutline,
-  personOutline,
-} from 'ionicons/icons';
 
 export enum OnboardingStep {
   One,
@@ -70,9 +64,7 @@ export class OnboardingPage {
     () => (this.currentStepIndex() + 1) / this.stepsOrder.length
   );
 
-  constructor(private router: Router) {
-    addIcons({ arrowBackOutline, personOutline, checkmarkCircleOutline });
-  }
+  private router = inject(Router);
 
   next() {
     if (this.currentStepIndex() < this.stepsOrder.length - 1) {

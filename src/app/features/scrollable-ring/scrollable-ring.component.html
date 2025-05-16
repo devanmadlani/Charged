@@ -1,0 +1,10 @@
+<div class="date-strip">
+  <app-progress-ring
+    *ngFor="let day of dates()"
+    [progress]="day.progress"
+    [label]="(day.date | date : 'd') ?? ''"
+    [selected]="day.selected()"
+    (selectedChange)="onSelect(day.date)"
+  >
+  </app-progress-ring>
+</div>

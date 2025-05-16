@@ -1,21 +1,20 @@
 <div class="ring-wrapper" [class.selected]="selected()" (click)="onClick()">
-  <svg
-    [attr.width]="size()"
-    [attr.height]="size()"
-    [attr.viewBox]="'0 0 ' + size() + ' ' + size()"
-  >
+  <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+    <!-- Light base ring (always shown) -->
     <circle
-      [attr.cx]="center()"
-      [attr.cy]="center()"
+      [attr.cx]="center"
+      [attr.cy]="center"
       [attr.r]="radius"
       [attr.stroke]="baseRingColor()"
       [attr.stroke-width]="strokeWidth"
       fill="none"
     />
 
+    <!-- Bold progress arc (only when NOT disabled) -->
+    @if (!disabled()) {
     <circle
-      [attr.cx]="center()"
-      [attr.cy]="center()"
+      [attr.cx]="center"
+      [attr.cy]="center"
       [attr.r]="radius"
       [attr.stroke]="progressColor()"
       [attr.stroke-width]="strokeWidth"
@@ -23,22 +22,28 @@
       stroke-linecap="round"
       [attr.stroke-dasharray]="dashArray()"
       stroke-dashoffset="0"
-      [attr.transform]="'rotate(-90 ' + center() + ' ' + center() + ')'"
+      transform="rotate(-90 50 50)"
     />
+    }
 
+    <!-- Center content: number or icon -->
+    @if (isNumberLabel()) {
     <text
-      [attr.x]="center()"
-      [attr.y]="center() + 5"
+      x="50"
+      y="54"
       text-anchor="middle"
-      font-size="14"
+      font-size="16"
       [attr.fill]="labelColor()"
       font-weight="bold"
     >
       {{ label() }}
     </text>
+    } @else {
+    <foreignObject x="35" y="35" width="30" height="30">
+      <div class="icon-wrapper">
+        <ion-icon [name]="label()" class="ring-icon"></ion-icon>
+      </div>
+    </foreignObject>
+    }
   </svg>
-
-  <div class="month-label">
-    {{ month() }}
-  </div>
 </div>

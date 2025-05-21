@@ -1,0 +1,51 @@
+.scan-list {
+  --border-width: 0;
+  padding: 0 12px;
+}
+
+.scan-card {
+  border-radius: 20px;
+  margin-bottom: 16px;
+  background: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  ion-item.scan-card-header {
+    --background: transparent;
+    --inner-padding-end: 12px;
+    --min-height: 72px;
+    --border-width: 0;
+    border-bottom: none !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .card-subtext {
+    font-size: 13px;
+    color: #28a745;
+    margin-top: 4px;
+  }
+
+  .progress-ring-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scan-card-content {
+    padding: 16px;
+    font-size: 14px;
+    background: #fafafa;
+    color: #444;
+    border-top: 1px solid #eee;
+  }
+}

@@ -32,7 +32,7 @@ import { ScanCardGridComponent } from 'app/features/scan-card-grid/scan-card-gri
 })
 export class HomePage {
   data = [
-    { label: 'Self', progress: 79, url: '/self' },
+    { label: 'Self', progress: 10, url: '/self' },
     {
       label: 'Health',
       progress: 0,

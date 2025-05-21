@@ -9,6 +9,7 @@ import {
   IonIcon,
 } from '@ionic/angular/standalone';
 import { ProgressRingComponent } from '@shared';
+import { ScanListItemComponent } from '../scan-list-item/scan-list-item.component';
 
 // TODO: move this to models file
 
@@ -27,12 +28,12 @@ export interface ScanCard {
   styleUrls: ['./scan-card-grid.component.scss'],
   imports: [
     IonIcon,
-    IonText,
     IonCard,
     IonCol,
     IonRow,
     IonGrid,
     ProgressRingComponent,
+    ScanListItemComponent,
   ],
 })
 export class ScanCardGridComponent {

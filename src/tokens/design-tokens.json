@@ -1154,44 +1154,48 @@
         "$value": "80px"
       }
     },
-    "radius": {
-      "none": {
-        "$type": "borderRadius",
-        "$value": "0px"
-      },
-      "small": {
-        "$type": "borderRadius",
-        "$value": "4px"
-      },
-      "medium": {
-        "$type": "borderRadius",
-        "$value": "8px"
-      },
-      "large": {
-        "$type": "borderRadius",
-        "$value": "12px"
-      },
-      "circular": {
-        "$type": "borderRadius",
-        "$value": "999px"
-      }
-    },
     "opacity": {
       "20": {
         "$type": "opacity",
-        "$value": 0.2
+        "$value": "0.2"
       },
       "40": {
         "$type": "opacity",
-        "$value": 0.4
+        "$value": "0.4"
       },
       "60": {
         "$type": "opacity",
-        "$value": 0.8
+        "$value": "0.8"
       },
       "80": {
         "$type": "opacity",
-        "$value": 0.6
+        "$value": "0.6"
+      }
+    },
+    "radius": {
+      "0": {
+        "$type": "borderRadius",
+        "$value": "0"
+      },
+      "100": {
+        "$type": "borderRadius",
+        "$value": "4"
+      },
+      "200": {
+        "$type": "borderRadius",
+        "$value": "8"
+      },
+      "400": {
+        "$type": "borderRadius",
+        "$value": "16"
+      },
+      "800": {
+        "$type": "borderRadius",
+        "$value": "32"
+      },
+      "900": {
+        "$type": "borderRadius",
+        "$value": "36000"
       }
     }
   },
@@ -1526,9 +1530,27 @@
         "$value": "{neutral.950}"
       }
     },
-    "card": {
-      "$type": "borderRadius",
-      "$value": "{radius.medium}"
+    "radius": {
+      "none": {
+        "$type": "borderRadius",
+        "$value": "{radius.0}"
+      },
+      "small": {
+        "$type": "borderRadius",
+        "$value": "{radius.100}"
+      },
+      "medium": {
+        "$type": "borderRadius",
+        "$value": "{radius.400}"
+      },
+      "large": {
+        "$type": "borderRadius",
+        "$value": "{radius.400}"
+      },
+      "circular": {
+        "$type": "borderRadius",
+        "$value": "{radius.900}"
+      }
     }
   },
   "semantic-dark": {
@@ -1870,7 +1892,8 @@
       "selectedTokenSets": {
         "core": "enabled",
         "semantic": "enabled"
-      }
+      },
+      "$figmaVariableReferences": {}
     },
     {
       "id": "dark",
@@ -1878,7 +1901,8 @@
       "selectedTokenSets": {
         "core": "enabled",
         "semantic-dark": "enabled"
-      }
+      },
+      "$figmaVariableReferences": {}
     }
   ],
   "$metadata": {

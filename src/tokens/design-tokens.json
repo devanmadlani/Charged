@@ -1,0 +1,92 @@
+{
+  "$themes": [
+    {
+      "id": "light",
+      "name": "Light",
+      "selectedTokenSets": {
+        "core-light": "enabled",
+        "core-dark": "disabled",
+        "semantic-light": "enabled",
+        "semantic-dark": "disabled"
+      }
+    },
+    {
+      "id": "dark",
+      "name": "Dark",
+      "selectedTokenSets": {
+        "core-light": "disabled",
+        "core-dark": "enabled",
+        "semantic-light": "disabled",
+        "semantic-dark": "enabled"
+      }
+    }
+  ],
+  "core-light": {
+    "blue": {
+      "500": {
+        "$value": "#1F9EFF",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#0068B8",
+        "$type": "color"
+      },
+      "50": {
+        "$value": "#F0F9FF",
+        "$type": "color"
+      }
+    }
+  },
+  "core-dark": {
+    "blue": {
+      "500": {
+        "$value": "#2A9CF4",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#1266A6",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#0D4978",
+        "$type": "color"
+      }
+    }
+  },
+  "semantic-light": {
+    "color": {
+      "primary": {
+        "base": {
+          "$value": "{core-light.blue.500}",
+          "$type": "color"
+        },
+        "shade": {
+          "$value": "{core-light.blue.700}",
+          "$type": "color"
+        },
+        "tint": {
+          "$value": "{core-light.blue.50}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "semantic-dark": {
+    "color": {
+      "primary": {
+        "base": {
+          "$value": "{core-dark.blue.500}",
+          "$type": "color"
+        },
+        "shade": {
+          "$value": "{core-dark.blue.700}",
+          "$type": "color"
+        },
+        "tint": {
+          "$value": "{core-dark.blue.900}",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

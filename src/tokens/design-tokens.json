@@ -1251,7 +1251,7 @@
     "primary": {
       "base": {
         "$type": "color",
-        "$value": "{blue.500}"
+        "$value": "{greenDark.500}"
       },
       "shade": {
         "$type": "color",

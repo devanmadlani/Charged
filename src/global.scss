@@ -37,9 +37,7 @@
 /* @import '@ionic/angular/css/palettes/dark.system.css'; */
 
 @import "./theme/light/variables.css";
-body.dark-theme {
-  @import "./theme/dark/variables.css";
-}
+@import "./theme/dark/variables.css";
 
 /* --- Theme token overrides for Ionic color system --- */
 
@@ -109,12 +107,8 @@ body.dark-theme {
   --app-background: var(--background-full-black);
   --app-text-color: var(--text-white);
   --ion-card-background: var(--background-card-dark, #1e1e1e);
-}
 
-body,
-ion-content {
-  background-color: var(--app-background);
-  color: var(--app-text-color);
+  --ion-border-color: var(--background-color-steps750);
 }
 
 /* --- Apply global background and text --- */
@@ -124,6 +118,7 @@ ion-content {
   color: var(--app-text-color);
 }
 
+/* --- Dark mode overrides for Ionic components --- */
 body.dark-theme ion-toolbar,
 body.dark-theme ion-tab-bar,
 body.dark-theme ion-footer,
@@ -139,13 +134,6 @@ body.dark-theme ion-item {
   --background: var(--ion-background-color);
   --color: var(--ion-text-color);
 }
-
-body.dark-theme {
-  --ion-border-color: var(
-    --background-color-steps750
-  ); // or whichever you prefer
-}
-
 ion-button {
   text-transform: none;
 }

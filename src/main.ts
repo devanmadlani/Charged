@@ -17,19 +17,22 @@ import { routes } from './app/app.routes';
 
 import { addIcons } from 'ionicons';
 import {
-  heartOutline,
-  settingsOutline,
-  homeOutline,
-  personOutline,
-  calendarOutline,
-  checkmarkOutline,
   arrowBackOutline,
+  calendarOutline,
+  caretDownOutline,
+  caretUpOutline,
   checkmarkCircleOutline,
-  home,
-  settings,
-  person,
+  checkmarkOutline,
   chevronForwardOutline,
+  heartOutline,
+  home,
+  homeOutline,
   lockClosedOutline,
+  person,
+  personOutline,
+  removeOutline,
+  settings,
+  settingsOutline,
 } from 'ionicons/icons';
 
 addIcons({
@@ -46,6 +49,9 @@ addIcons({
   person: person,
   'chevron-forward-outline': chevronForwardOutline,
   'lock-closed-outline': lockClosedOutline,
+  'caret-up-outline': caretUpOutline,
+  'caret-down-outline': caretDownOutline,
+  'remove-outline': removeOutline,
 });
 
 bootstrapApplication(AppComponent, {

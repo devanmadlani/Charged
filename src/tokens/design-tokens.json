@@ -1165,11 +1165,11 @@
       },
       "60": {
         "$type": "opacity",
-        "$value": "0.8"
+        "$value": "0.6"
       },
       "80": {
         "$type": "opacity",
-        "$value": "0.6"
+        "$value": "0.8"
       }
     },
     "radius": {
@@ -1251,7 +1251,7 @@
     "primary": {
       "base": {
         "$type": "color",
-        "$value": "{greenDark.500}"
+        "$value": "{blue.500}"
       },
       "shade": {
         "$type": "color",
@@ -1906,10 +1906,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "semantic",
-      "semantic-dark"
-    ]
+    "tokenSetOrder": ["core", "semantic", "semantic-dark"]
   }
 }

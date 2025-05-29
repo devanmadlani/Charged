@@ -1699,6 +1699,28 @@
           "type": "boxShadow"
         }
       }
+    },
+    "background": {
+      "dangerFaded": {
+        "value": "{red.50}",
+        "type": "color"
+      },
+      "primaryFaded": {
+        "value": "{blue.50}",
+        "type": "color"
+      },
+      "secondaryFaded": {
+        "value": "{purple.50}",
+        "type": "color"
+      },
+      "successFaded": {
+        "value": "{green.50}",
+        "type": "color"
+      },
+      "warningFaded": {
+        "value": "{yellow.50}",
+        "type": "color"
+      }
     }
   },
   "sparkSemanticDark": {
@@ -1717,6 +1739,28 @@
       },
       "veryGood": {
         "value": "{greenDark.800}",
+        "type": "color"
+      }
+    },
+    "background": {
+      "primaryFaded": {
+        "value": "{blueDark.950}",
+        "type": "color"
+      },
+      "secondaryFaded": {
+        "value": "{purpleDark.950}",
+        "type": "color"
+      },
+      "successFaded": {
+        "value": "{greenDark.950}",
+        "type": "color"
+      },
+      "warningFaded": {
+        "value": "{yellowDark.950}",
+        "type": "color"
+      },
+      "dangerFaded": {
+        "value": "{redDark.950}",
         "type": "color"
       }
     }

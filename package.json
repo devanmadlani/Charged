@@ -29,6 +29,8 @@
     "@capacitor/haptics": "7.0.1",
     "@capacitor/keyboard": "7.0.1",
     "@capacitor/status-bar": "7.0.1",
+    "@hugeicons/angular": "^1.0.4",
+    "@hugeicons/core-free-icons": "^1.0.14",
     "@ionic/angular": "^8.0.0",
     "@ngx-translate/core": "^16.0.4",
     "@typeform/embed": "^5.3.1",

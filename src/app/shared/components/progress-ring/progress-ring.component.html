@@ -41,7 +41,12 @@
     } @else {
     <foreignObject x="35" y="35" width="30" height="30">
       <div class="icon-wrapper">
-        <ion-icon [name]="label()" class="ring-icon"></ion-icon>
+        <hugeicons-icon
+          [icon]="resolvedIcon()"
+          [size]="24"
+          color="currentColor"
+          [strokeWidth]="1.5"
+        ></hugeicons-icon>
       </div>
     </foreignObject>
     }

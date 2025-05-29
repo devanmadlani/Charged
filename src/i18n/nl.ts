@@ -9,8 +9,10 @@ export const nl = {
     TITLE: 'Welkom!',
   },
   TABS: {
-    HOME: 'Startpagina',
-    SETTINGS: 'Instellingen',
+    PLAN: 'Plannen',
+    SCAN: 'Scan',
+    ACT: 'Actie',
+    CONNECT: 'Verbind',
   },
   SETTINGS_PAGE: {
     TITLE: 'Instellingen',
@@ -18,12 +20,12 @@ export const nl = {
   ONBOARDING_PAGE: {
     TITLE: '7 minuten. Eén scan. Een duidelijker pad vooruit.',
     USE_ANSWERS_TO_BUILD_HABITS:
-      'We gebruiken je antwoorden om je te helpen gewoontes te ontwikkelen die echt blijven hangen.',
+      'We gebruiken je antwoorden om je te helpen gewoonten op te bouwen die echt blijven hangen.',
     START_YOUR_JOURNEY: 'Begin je reis',
     CONTINUE: 'Doorgaan',
     DO_IT_LATER: 'Ik doe dit later',
     SCAN_TRACKERS_STICK_TO_HABIT:
-      'Scan-deelnemers houden vaker hun gewoontes vol.',
+      'Scan-deelnemers houden zich vaker aan hun gewoonten.',
     BACK: 'Terug',
     SKIP: 'Overslaan',
   },

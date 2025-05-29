@@ -9,8 +9,10 @@ export const en = {
     TITLE: 'Welcome!',
   },
   TABS: {
-    HOME: 'Home',
-    SETTINGS: 'Settings',
+    PLAN: 'Plan',
+    SCAN: 'Scan',
+    ACT: 'Act',
+    CONNECT: 'Connect',
   },
   SETTINGS_PAGE: {
     TITLE: 'Settings',

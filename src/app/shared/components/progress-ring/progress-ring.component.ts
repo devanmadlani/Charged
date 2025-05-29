@@ -5,18 +5,19 @@ import {
   input,
   Output,
 } from '@angular/core';
-import { IonIcon } from '@ionic/angular/standalone';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import * as Icons from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-progress-ring',
   standalone: true,
   templateUrl: './progress-ring.component.html',
   styleUrls: ['./progress-ring.component.scss'],
-  imports: [IonIcon],
+  imports: [HugeiconsIconComponent],
 })
 export class ProgressRingComponent {
   progress = input<number>(0);
-  label = input<string | number>(''); // accept number or icon name
+  label = input<string | number>('');
   selected = input<boolean>(false);
   disabled = input<boolean>(false);
 
@@ -54,6 +55,11 @@ export class ProgressRingComponent {
   readonly isNumberLabel = computed(() => {
     const value = this.label();
     return typeof value === 'number' || !isNaN(Number(value));
+  });
+
+  readonly resolvedIcon = computed(() => {
+    const name = this.label();
+    return (Icons as Record<string, any>)[name];
   });
 
   onClick() {

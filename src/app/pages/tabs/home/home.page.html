@@ -1,19 +1,23 @@
 <ion-content [fullscreen]="true">
   <div class="page-header-bg">
-    <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-text color="light">
-        <h2 class="ion-no-margin">Scan</h2>
-      </ion-text>
-      <ion-avatar>
-        <ion-label class="avatar-initial">T</ion-label>
-      </ion-avatar>
+    <ion-row
+      class="ion-align-items-center ion-no-padding ion-justify-content-between"
+    >
+      <ion-col class="ion-text-center">
+        <h2 class="header-title">Self</h2>
+      </ion-col>
+
+      <ion-col size="auto" class="ion-text-end">
+        <ion-avatar class="avatar-initial">
+          <ion-label>T</ion-label>
+        </ion-avatar>
+      </ion-col>
     </ion-row>
     <app-score-progress-bar [score]="70"></app-score-progress-bar>
   </div>
 
   <div class="floating-main-content">
-    <app-line-chart></app-line-chart>
-
     <app-scan-card-grid [data]="data"></app-scan-card-grid>
+    <app-line-chart></app-line-chart>
   </div>
 </ion-content>

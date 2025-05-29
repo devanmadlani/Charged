@@ -35,4 +35,8 @@ export const routes: Routes = [
         (m) => m.OnboardingPage
       ),
   },
+  {
+    path: 'self-scan',
+    loadComponent: () => import('./pages/self-scan/self-scan.page').then( m => m.SelfScanPage)
+  },
 ];

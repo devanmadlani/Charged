@@ -1194,36 +1194,6 @@
         "type": "fontFamilies"
       }
     },
-    "fontSize": {
-      "100": {
-        "value": "0,75rem",
-        "type": "fontSizes"
-      },
-      "200": {
-        "value": "0,875rem",
-        "type": "fontSizes"
-      },
-      "300": {
-        "value": "1rem",
-        "type": "fontSizes"
-      },
-      "400": {
-        "value": "1,25rem",
-        "type": "fontSizes"
-      },
-      "500": {
-        "value": "1,5rem",
-        "type": "fontSizes"
-      },
-      "600": {
-        "value": "1,875rem",
-        "type": "fontSizes"
-      },
-      "700": {
-        "value": "2,25rem",
-        "type": "fontSizes"
-      }
-    },
     "lineHeight": {
       "100": {
         "value": "100%",
@@ -1408,6 +1378,36 @@
       "400": {
         "value": "4",
         "type": "borderWidth"
+      }
+    },
+    "fontSize": {
+      "100": {
+        "value": "0.75rem",
+        "type": "dimension"
+      },
+      "200": {
+        "value": "0.875rem",
+        "type": "dimension"
+      },
+      "300": {
+        "value": "1rem",
+        "type": "dimension"
+      },
+      "400": {
+        "value": "1.25rem",
+        "type": "dimension"
+      },
+      "500": {
+        "value": "1.5rem",
+        "type": "dimension"
+      },
+      "600": {
+        "value": "1.875rem",
+        "type": "dimension"
+      },
+      "700": {
+        "value": "2.25rem",
+        "type": "dimension"
       }
     }
   },

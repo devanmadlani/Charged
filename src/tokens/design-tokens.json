@@ -1741,6 +1741,28 @@
         "value": "{borderWidth.400}",
         "type": "borderWidth"
       }
+    },
+    "gap": {
+      "50": {
+        "value": "{unit.x1}",
+        "type": "sizing"
+      },
+      "100": {
+        "value": "{unit.x2}",
+        "type": "sizing"
+      },
+      "200": {
+        "value": "{unit.x4}",
+        "type": "sizing"
+      },
+      "300": {
+        "value": "{unit.x6}",
+        "type": "sizing"
+      },
+      "500": {
+        "value": "{unit.x8}",
+        "type": "sizing"
+      }
     }
   },
   "sparkSemanticDark": {

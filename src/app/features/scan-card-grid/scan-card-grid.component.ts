@@ -1,15 +1,13 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   IonCard,
   IonCol,
   IonGrid,
-  IonRow,
-  IonText,
   IonIcon,
+  IonRow,
 } from '@ionic/angular/standalone';
 import { ProgressRingComponent } from '@shared';
-import { ScanListItemComponent } from '../scan-list-item/scan-list-item.component';
 
 // TODO: move this to models file
 
@@ -26,15 +24,7 @@ export interface ScanCard {
   standalone: true,
   templateUrl: './scan-card-grid.component.html',
   styleUrls: ['./scan-card-grid.component.scss'],
-  imports: [
-    IonIcon,
-    IonCard,
-    IonCol,
-    IonRow,
-    IonGrid,
-    ProgressRingComponent,
-    ScanListItemComponent,
-  ],
+  imports: [IonIcon, IonCard, IonCol, IonRow, IonGrid, ProgressRingComponent],
 })
 export class ScanCardGridComponent {
   data = input<any[]>();

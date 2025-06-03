@@ -9,7 +9,7 @@ import {
   IonRow,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { LineChartComponent, ScoreProgressBarComponent } from '@shared';
+import { ScoreProgressBarComponent } from '@shared';
 import { ScanCardGridComponent } from 'app/features/scan-card-grid/scan-card-grid.component';
 
 @Component({
@@ -28,7 +28,6 @@ import { ScanCardGridComponent } from 'app/features/scan-card-grid/scan-card-gri
     TranslateModule,
     ScoreProgressBarComponent,
     ScanCardGridComponent,
-    LineChartComponent,
   ],
 })
 export class HomePage {

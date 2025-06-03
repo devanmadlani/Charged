@@ -56,9 +56,11 @@
         </ion-avatar>
       </ion-col>
     </ion-row>
+    <app-score-progress-bar [score]="70"></app-score-progress-bar>
   </div>
 
   <div class="floating-main-content">
-    <!-- your content -->
+    <app-scan-list-item></app-scan-list-item>
+    <app-line-chart></app-line-chart>
   </div>
 </ion-content>

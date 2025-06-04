@@ -1763,6 +1763,20 @@
         "value": "{unit.x8}",
         "type": "sizing"
       }
+    },
+    "icon": {
+      "default": {
+        "value": "{neutral.900}",
+        "type": "color"
+      },
+      "support": {
+        "value": "{neutral.600}",
+        "type": "color"
+      },
+      "actionable": {
+        "value": "{blue.600}",
+        "type": "color"
+      }
     }
   },
   "sparkSemanticDark": {

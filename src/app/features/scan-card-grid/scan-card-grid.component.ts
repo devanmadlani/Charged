@@ -1,12 +1,8 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  IonCard,
-  IonCol,
-  IonGrid,
-  IonIcon,
-  IonRow,
-} from '@ionic/angular/standalone';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import { ArrowRight01Icon, SquareLock02Icon } from '@hugeicons/core-free-icons';
+import { IonCard, IonCol, IonGrid, IonRow } from '@ionic/angular/standalone';
 import { ProgressRingComponent } from '@shared';
 
 // TODO: move this to models file
@@ -24,12 +20,20 @@ export interface ScanCard {
   standalone: true,
   templateUrl: './scan-card-grid.component.html',
   styleUrls: ['./scan-card-grid.component.scss'],
-  imports: [IonIcon, IonCard, IonCol, IonRow, IonGrid, ProgressRingComponent],
+  imports: [
+    HugeiconsIconComponent,
+    IonCard,
+    IonCol,
+    IonRow,
+    IonGrid,
+    ProgressRingComponent,
+  ],
 })
 export class ScanCardGridComponent {
   data = input<any[]>();
-
   test: any;
+  SquareLock02Icon = SquareLock02Icon;
+  ArrowRight01Icon = ArrowRight01Icon;
 
   private router = inject(Router);
 

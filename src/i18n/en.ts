@@ -27,5 +27,6 @@ export const en = {
     SCAN_TRACKERS_STICK_TO_HABIT: 'Scan-takers stick to habits more often.',
     BACK: 'Back',
     SKIP: 'Skip',
+    EMAIL: 'DFGHRTHNFGN',
   },
 };

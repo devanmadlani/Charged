@@ -1,77 +1,58 @@
-import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
+  IonButton,
   IonContent,
   IonHeader,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonText,
   IonTitle,
   IonToolbar,
-  IonLabel,
-  IonItem,
-  IonButton,
-  IonSelectOption,
-  IonInput,
-  IonSelect,
-  IonText,
 } from '@ionic/angular/standalone';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, UserService } from '@app-core';
-import { UserRole } from '@models/user.model';
+import Passwordless from 'supertokens-web-js/recipe/passwordless';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    IonButton,
-    IonItem,
-    IonLabel,
     IonContent,
     IonHeader,
     IonTitle,
     IonToolbar,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonButton,
+    IonText,
     CommonModule,
     FormsModule,
-    TranslateModule,
-    IonInput,
-    IonText,
   ],
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
-  username = '';
-  password = '';
-  error = '';
-
-  private userService = inject(UserService);
-  private authService = inject(AuthService);
+export class LoginPage {
+  email = '';
+  isLoading = false;
+  message = '';
   private router = inject(Router);
-  private route = inject(ActivatedRoute);
 
-  ngOnInit(): void {
-    if (this.authService.isLoggedIn()) {
-      this.router.navigateByUrl('/tabs/home');
+  async sendMagicLink() {
+    this.isLoading = true;
+    this.message = '';
+    try {
+      const res = await Passwordless.createCode({ email: this.email });
+      this.message =
+        res.status === 'OK'
+          ? 'Magic link sent! Check your email.'
+          : `Error: ${res.status}`;
+    } catch (err) {
+      console.error('Magic link error:', err);
+      this.message = 'Something went wrong. Try again.';
     }
-  }
-
-  async login(): Promise<void> {
-    this.error = '';
-
-    this.userService.login(this.username, this.password).subscribe({
-      next: (user) => {
-        this.authService.setUser(user);
-        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-
-        if (user.role === 'admin') {
-          this.router.navigateByUrl(returnUrl || '/admin');
-        } else {
-          this.router.navigateByUrl(returnUrl || '/tabs/home');
-        }
-      },
-      error: () => {
-        this.error = 'Invalid credentials';
-      },
-    });
+    this.isLoading = false;
   }
 }

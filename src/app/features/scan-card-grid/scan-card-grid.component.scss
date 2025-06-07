@@ -6,6 +6,7 @@
   height: 160px;
   border-radius: 16px;
   padding: 16px;
+  margin: 0;
 
   background-color: var(--ion-card-background);
   color: var(--ion-text-color);
@@ -22,8 +23,8 @@
   }
 
   app-progress-ring {
-    width: 88px;
-    height: 88px;
+    width: 110px;
+    height: 110px;
   }
 
   .card-bottom-row {

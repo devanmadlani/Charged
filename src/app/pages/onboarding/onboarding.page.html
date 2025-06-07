@@ -2,9 +2,17 @@
   <ion-toolbar>
     @if (currentStepIndex() > 0) {
     <ion-buttons slot="start">
-      <ion-button fill="clear" (click)="previous()">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-        {{'ONBOARDING_PAGE.BACK' | translate}}
+      <ion-button fill="clear" (click)="previous()" class="icon-button">
+        <hugeicons-icon
+          [icon]="ArrowLeft01Icon"
+          [size]="20"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="hugeicon-inline"
+        ></hugeicons-icon>
+        <span class="button-label">
+          {{ 'ONBOARDING_PAGE.BACK' | translate }}
+        </span>
       </ion-button>
     </ion-buttons>
     }
@@ -24,40 +32,110 @@
     @switch(currentStep()) { @case(OnboardingStep.One) {
     <div class="top-section">
       <div class="centered">
-        <ion-icon name="person-outline" class="main-icon"></ion-icon>
+        <hugeicons-icon
+          [icon]="AiScanIcon"
+          [size]="100"
+          color="currentColor"
+          [strokeWidth]="1.5"
+        ></hugeicons-icon>
+      </div>
+      <div class="bottom-text">
+        <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
 
+        <p class="description">
+          {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
+        </p>
+
+        <div class="success-text">
+          <hugeicons-icon
+            [icon]="Tick01Icon"
+            [size]="15"
+            color="currentColor"
+            [strokeWidth]="1.5"
+          ></hugeicons-icon>
+          <span
+            >{{'ONBOARDING_PAGE.SCAN_TRACKERS_STICK_TO_HABIT' |
+            translate}}</span
+          >
+        </div>
+      </div>
+    </div>
+    } @case(OnboardingStep.Two) {
+    <div class="top-section">
+      <div class="centered">
+        <hugeicons-icon
+          [icon]="Search02Icon"
+          [size]="100"
+          color="currentColor"
+          [strokeWidth]="1.5"
+        ></hugeicons-icon>
+      </div>
+      <div>
         <div class="bottom-text">
           <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
 
           <p class="description">
             {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
           </p>
+        </div>
+      </div>
+    </div>
+    } @case(OnboardingStep.Three) {
+    <div class="top-section">
+      <div class="centered">
+        <div class="top-section">
+          <div class="centered">
+            <hugeicons-icon
+              [icon]="MailAccount01Icon"
+              [size]="100"
+              color="currentColor"
+              [strokeWidth]="1.5"
+            ></hugeicons-icon>
+          </div>
+          <div>
+            <div class="bottom-text">
+              <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
 
-          <div class="success-text">
-            <ion-icon
-              name="checkmark-circle-outline"
-              color="success"
-            ></ion-icon>
-            <span
-              >{{'ONBOARDING_PAGE.SCAN_TRACKERS_STICK_TO_HABIT' |
-              translate}}</span
-            >
+              <p class="description">
+                {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
+              </p>
+
+              <form>
+                <ion-item>
+                  <ion-label position="floating"
+                    >{{'ONBOARDING_PAGE.EMAIL' | translate}}</ion-label
+                  >
+                  <ion-input
+                    [(ngModel)]="email"
+                    name="email"
+                    type="email"
+                    required
+                  ></ion-input>
+                </ion-item>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    } @case(OnboardingStep.Two) {
-    <div class="centered">
-      <h2>Two</h2>
-    </div>
-    } @case(OnboardingStep.Three) {
-    <div class="centered">
-      <h2>Three</h2>
+    } @case(OnboardingStep.Four) {
+    <div>
+      <div class="centered">
+        <app-survey [formId]="TYPEFORM_FORMS.feedback.id"></app-survey>
+      </div>
     </div>
     } @case(OnboardingStep.Final) {
-    <div class="centered">
-      <app-survey [formId]="TYPEFORM_FORMS.feedback.id"></app-survey>
-    </div>
+    <ion-text>{{ message }}</ion-text>
+
+    <ion-button
+      class="rounded-button"
+      expand="block"
+      shape="round"
+      (click)="sendMagicLink()"
+    >
+      {{ isLoading ? 'Sending...' : 'Send Magic Link' }}
+    </ion-button>
+
     } } @if(currentStep()!== OnboardingStep.Final) {
     <div class="bottom-section">
       <ion-button

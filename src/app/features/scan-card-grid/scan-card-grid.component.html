@@ -18,12 +18,13 @@
 
         <div class="card-bottom-row">
           <span class="card-label">{{ card.label }}</span>
-          <ion-icon
-            [name]="
-              card.disabled ? 'lock-closed-outline' : 'chevron-forward-outline'
-            "
-            class="card-arrow"
-          ></ion-icon>
+
+          <hugeicons-icon
+            [icon]="card.disabled ? SquareLock02Icon : ArrowRight01Icon"
+            [size]="24"
+            color="currentColor"
+            [strokeWidth]="1.5"
+          ></hugeicons-icon>
         </div>
       </ion-card>
     </ion-col>

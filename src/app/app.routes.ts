@@ -37,6 +37,14 @@ export const routes: Routes = [
   },
   {
     path: 'self-scan',
-    loadComponent: () => import('./pages/self-scan/self-scan.page').then( m => m.SelfScanPage)
+    loadComponent: () =>
+      import('./pages/self-scan/self-scan.page').then((m) => m.SelfScanPage),
+  },
+  {
+    path: 'auth/verify',
+    loadComponent: () =>
+      import('./pages/auth-verify/auth-verify.page').then(
+        (m) => m.AuthVerifyPage
+      ),
   },
 ];

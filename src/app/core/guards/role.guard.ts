@@ -1,17 +1,21 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { UserRole } from '@models/user.model';
 import { AuthService } from '@app-core';
+import { UserRole } from '@models/user.model';
 
-export const roleGuard: CanActivateFn = (route, state) => {
+export const roleGuard: CanActivateFn = async (route, state) => {
   const auth = inject(AuthService);
   const router = inject(Router);
+
+  if (!auth.user()) {
+    const sessionUser = await auth.loadUserFromSession();
+    auth.setUser(sessionUser);
+  }
 
   const allowedRoles = (route.data?.['allowedRoles'] as UserRole[]) ?? [];
   const currentRole = auth.userRole();
 
-  if (!auth.isLoggedIn()) {
-    //if user is not logged in we then redirect them to login page
+  if (!auth.user()) {
     router.navigate(['/login'], {
       queryParams: { returnUrl: state.url },
     });
@@ -19,12 +23,10 @@ export const roleGuard: CanActivateFn = (route, state) => {
   }
 
   if (!currentRole || !allowedRoles.includes(currentRole)) {
-    // User is logged in but not allowed — redirect based on their role
-    const fallbackRoute = currentRole === 'admin' ? '/admin' : '/tabs/home';
-    router.navigateByUrl(fallbackRoute);
+    const fallback = currentRole === 'admin' ? '/admin' : '/tabs/home';
+    router.navigateByUrl(fallback);
     return false;
   }
 
-  // Access granted
   return true;
 };

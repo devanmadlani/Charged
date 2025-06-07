@@ -1846,10 +1846,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "sparkCore",
-      "sparkSemantic",
-      "sparkSemanticDark"
-    ]
+    "tokenSetOrder": ["sparkCore", "sparkSemantic", "sparkSemanticDark"]
   }
 }

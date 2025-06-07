@@ -17,12 +17,7 @@ export class AuthService {
 
   async loadUserFromSession(): Promise<User | null> {
     const sessionExists = await Session.doesSessionExist();
-    console.log(sessionExists);
     if (!sessionExists) return null;
-
-    if (this._user()) {
-      return this._user();
-    }
 
     try {
       const user = await firstValueFrom(
@@ -33,13 +28,12 @@ export class AuthService {
           }
         )
       );
-      return user ?? null;
+      return user;
     } catch (err) {
       console.error('Error loading session user:', err);
       return null;
     }
   }
-
   setUser(user: User | null): void {
     this._user.set(user);
   }

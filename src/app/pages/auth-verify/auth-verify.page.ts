@@ -41,11 +41,20 @@ export class AuthVerifyPage implements OnInit {
   async ngOnInit() {
     try {
       const result = await Passwordless.consumeCode();
+
       if (result.status === 'OK') {
-        await this.authService.loadUserFromSession();
-        const role = this.authService.userRole();
-        const redirectTo = role === 'admin' ? '/admin' : '/tabs/home';
-        this.router.navigateByUrl(redirectTo);
+        const user = await this.authService.loadUserFromSession();
+
+        if (user) {
+          this.authService.setUser(user);
+          const role = this.authService.userRole();
+          const redirectTo = role === 'admin' ? '/admin' : '/tabs/home';
+          this.router.navigateByUrl(redirectTo);
+        } else {
+          this.router.navigate(['/login'], {
+            queryParams: { error: 'session-invalid' },
+          });
+        }
       } else {
         this.router.navigate(['/login'], {
           queryParams: { error: result.status },

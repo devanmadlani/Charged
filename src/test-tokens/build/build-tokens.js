@@ -13,17 +13,19 @@ register(StyleDictionary, {
 });
 
 async function buildTokens() {
-  const sd = new StyleDictionary({
+  // Configuration for sparkCore tokens
+  const sparkCore = new StyleDictionary({
     source: ["src/tokens/design-tokens.json"],
-    preprocessors: ["tokens-studio"], // required since 0.16.0
+    filter: (token) => token.path[0] === "sparkCore",
+    preprocessors: ["tokens-studio"],
     platforms: {
       css: {
-        transformGroup: "tokens-studio", // use the standard transformGroup
+        transformGroup: "tokens-studio",
         transforms: ["name/kebab"],
         buildPath: "src/test-tokens/design-tokens/",
         files: [
           {
-            destination: "variables.css",
+            destination: "sparkCore.css",
             format: "css/variables",
           },
         ],
@@ -31,8 +33,58 @@ async function buildTokens() {
     },
   });
 
-  await sd.cleanAllPlatforms();
-  await sd.buildAllPlatforms();
+  // Configuration for sparkSemantic tokens
+  const sparkSemantic = new StyleDictionary({
+    source: ["src/tokens/design-tokens.json"],
+    filter: (token) => token.path[0] === "sparkSemantic",
+    preprocessors: ["tokens-studio"],
+    platforms: {
+      css: {
+        transformGroup: "tokens-studio",
+        transforms: ["name/kebab"],
+        buildPath: "src/test-tokens/design-tokens/",
+        files: [
+          {
+            destination: "sparkSemantic.css",
+            format: "css/variables",
+          },
+        ],
+      },
+    },
+  });
+
+  // Configuration for sparkSemanticDark tokens
+  const sparkSemanticDark = new StyleDictionary({
+    source: ["src/tokens/design-tokens.json"],
+    filter: (token) => token.path[0] === "sparkSemanticDark",
+    preprocessors: ["tokens-studio"],
+    platforms: {
+      css: {
+        transformGroup: "tokens-studio",
+        transforms: ["name/kebab"],
+        buildPath: "src/test-tokens/design-tokens/",
+        files: [
+          {
+            destination: "sparkSemanticDark.css",
+            format: "css/variables",
+          },
+        ],
+      },
+    },
+  });
+
+  // Clean and build all platforms for each configuration
+  await Promise.all([
+    sparkCore.cleanAllPlatforms(),
+    sparkSemantic.cleanAllPlatforms(),
+    sparkSemanticDark.cleanAllPlatforms(),
+  ]);
+
+  await Promise.all([
+    sparkCore.buildAllPlatforms(),
+    sparkSemantic.buildAllPlatforms(),
+    sparkSemanticDark.buildAllPlatforms(),
+  ]);
 }
 
 buildTokens().catch(console.error);

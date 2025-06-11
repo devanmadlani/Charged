@@ -1825,26 +1825,7 @@
       }
     }
   },
-  "$themes": [
-    {
-      "id": "light",
-      "name": "Light",
-      "selectedTokenSets": {
-        "sparkCore": "enabled",
-        "sparkSemantic": "enabled"
-      },
-      "$figmaVariableReferences": {}
-    },
-    {
-      "id": "dark",
-      "name": "Dark",
-      "selectedTokenSets": {
-        "sparkCore": "enabled",
-        "sparkSemanticDark": "enabled"
-      },
-      "$figmaVariableReferences": {}
-    }
-  ],
+
   "$metadata": {
     "tokenSetOrder": ["sparkCore", "sparkSemantic", "sparkSemanticDark"]
   }

@@ -1798,7 +1798,7 @@
         "type": "color"
       },
       "veryGood": {
-        "value": "{greenDark.800}",
+        "value": "{purple.500}",
         "type": "color"
       }
     },
@@ -1825,8 +1825,12 @@
       }
     }
   },
-
+  "$themes": [],
   "$metadata": {
-    "tokenSetOrder": ["sparkCore", "sparkSemantic", "sparkSemanticDark"]
+    "tokenSetOrder": [
+      "sparkCore",
+      "sparkSemantic",
+      "sparkSemanticDark"
+    ]
   }
 }

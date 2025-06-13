@@ -1,15 +1,18 @@
-<div class="notification">
+<div class="notification" [class.inline]="inline()" [class]="type()">
   <div class="notification-content">
-    <ion-icon
-      name="checkmark-circle-outline"
-      class="notification-icon"
-    ></ion-icon>
+    <div class="notification-icon-container">
+      <ion-icon [name]="getIconName()" class="notification-icon"></ion-icon>
+    </div>
     <div class="notification-content-text">
       <div class="notification-content-text-title">
-        <p class="heading">Heading</p>
+        @if (!inline()) {
+          <p class="heading">Heading</p>
+        }
         <p class="subheading">One or two lines</p>
       </div>
-      <p class="link">Action</p>
+      @if (showAction()) {
+        <a class="link" href="#">Action</a>
+      }
     </div>
   </div>
 </div>

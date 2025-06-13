@@ -1402,11 +1402,11 @@
         "type": "dimension"
       },
       "600": {
-        "value": "1.875rem",
+        "value": "1.75rem",
         "type": "dimension"
       },
       "700": {
-        "value": "2.25rem",
+        "value": "2rem",
         "type": "dimension"
       }
     }
@@ -1798,7 +1798,7 @@
         "type": "color"
       },
       "veryGood": {
-        "value": "{purple.500}",
+        "value": "{greenDark.800}",
         "type": "color"
       }
     },

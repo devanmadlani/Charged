@@ -20,6 +20,12 @@
       {{ isLoading ? 'Sending...' : 'Send Magic Link' }}
     </ion-button>
   </form>
+
+  <app-week-tracker
+    [data]="weekTrackerData"
+    (dayToggled)="onDayToggled($event)"
+  >
+  </app-week-tracker>
   } @else {
   <ion-text>{{ message }}</ion-text>
   }

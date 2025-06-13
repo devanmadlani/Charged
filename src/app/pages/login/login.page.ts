@@ -13,6 +13,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
+import { WeekTrackerComponent } from '@shared';
 import Passwordless from 'supertokens-web-js/recipe/passwordless';
 
 @Component({
@@ -30,6 +31,7 @@ import Passwordless from 'supertokens-web-js/recipe/passwordless';
     IonText,
     CommonModule,
     FormsModule,
+    WeekTrackerComponent,
   ],
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
@@ -39,6 +41,14 @@ export class LoginPage {
   isLoading = false;
   message = '';
   private router = inject(Router);
+
+  weekTrackerData: any = {
+    title: 'Morning walk',
+    weeklyGoal: 5,
+    currentProgress: 0,
+    buildPhase: 'Build phase 2/4',
+    iconType: 'droplet',
+  };
 
   async sendMagicLink() {
     this.isLoading = true;
@@ -54,5 +64,10 @@ export class LoginPage {
       this.message = 'Something went wrong. Try again.';
     }
     this.isLoading = false;
+  }
+
+  onDayToggled(event: { day: any; allDays: any[] }) {
+    console.log('Day toggled:', event.day);
+    console.log('All days:', event.allDays);
   }
 }

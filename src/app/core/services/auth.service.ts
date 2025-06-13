@@ -19,6 +19,13 @@ export class AuthService {
     const sessionExists = await Session.doesSessionExist();
     if (!sessionExists) return null;
 
+    const mockUser: User = {
+      role: 'user',
+      username: 'devan',
+    };
+
+    return Promise.resolve(mockUser);
+
     try {
       const user = await firstValueFrom(
         this.http.get<User>(

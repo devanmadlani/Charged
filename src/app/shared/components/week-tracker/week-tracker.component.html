@@ -1,0 +1,89 @@
+<div class="week-tracker-container">
+  <!-- Header with title, level and close button -->
+  <div class="week-tracker-header">
+    <h2 class="week-tracker-title">{{ data.title }}</h2>
+    <div class="header-right">
+      <span class="level-indicator">Level {{ data.level }}</span>
+      <button class="close-btn" type="button" aria-label="Close">fg</button>
+    </div>
+  </div>
+
+  <!-- Week days grid -->
+  <div class="week-days-container">
+    <div class="week-days-grid">
+      @for (day of weekDays; track day.date) {
+      <div class="day-column">
+        <span class="day-short">{{ day.dayShort }}</span>
+        <button
+          [class]="getDayClasses(day)"
+          (click)="handleDayClick(day)"
+          type="button"
+          [attr.aria-label]="
+            day.dayName +
+            (day.isDone
+              ? ' completed'
+              : day.isMissed
+              ? ' missed'
+              : ' not completed')
+          "
+        >
+          <!-- Content for missed days -->
+          @if (day.isMissed && !day.isDone) {
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="12" y1="4" x2="4" y2="12"></line>
+            <line x1="4" y1="4" x2="12" y2="12"></line>
+          </svg>
+          }
+
+          <!-- Content for completed days -->
+          @if (day.isDone) {
+          <div class="day-content">
+            <!-- Single day: show tick icon only -->
+            @if (day.streakType === 'single') {
+            <hugeicons-icon
+              [icon]="Tick01Icon"
+              [size]="16"
+              color="currentColor"
+              [strokeWidth]="1.5"
+            ></hugeicons-icon>
+            }
+
+            <!-- Last day of streak: show fire icon + count horizontally -->
+            @if (day.streakType === 'end') {
+            <div class="streak-info">
+              <hugeicons-icon
+                [icon]="FireIcon"
+                [size]="16"
+                color="currentColor"
+                [strokeWidth]="1.5"
+              ></hugeicons-icon>
+              <span class="streak-count">{{ getCurrentStreakCount() }}</span>
+            </div>
+            }
+          </div>
+          }
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Footer with stats -->
+  <div class="week-tracker-footer">
+    <div class="weekly-goal">
+      <span class="goal-text"
+        >Weekly goal {{ data.currentProgress }}/{{ data.weeklyGoal }}</span
+      >
+    </div>
+    <div class="build-phase">
+      <span class="phase-text">{{ data.buildPhase }}</span>
+    </div>
+  </div>
+</div>

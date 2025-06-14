@@ -1,12 +1,11 @@
-import {
-  Component,
-  computed,
-  EventEmitter,
-  input,
-  Output,
-} from '@angular/core';
+import { Component, computed, input, output, inject } from '@angular/core';
 import { HugeiconsIconComponent } from '@hugeicons/angular';
 import * as Icons from '@hugeicons/core-free-icons';
+import { ProgressColorsService } from './services/progress-colors.service';
+import {
+  PROGRESS_RING_CONFIG,
+  calculateCircumference,
+} from './progress-ring.constants';
 
 @Component({
   selector: 'app-progress-ring',
@@ -16,17 +15,19 @@ import * as Icons from '@hugeicons/core-free-icons';
   imports: [HugeiconsIconComponent],
 })
 export class ProgressRingComponent {
+  private readonly colorsService = inject(ProgressColorsService);
+
   progress = input<number>(0);
   label = input<string | number>('');
   selected = input<boolean>(false);
   disabled = input<boolean>(false);
 
-  @Output() selectedChange = new EventEmitter<void>();
+  selectedChange = output<void>();
 
-  readonly radius = 40;
-  readonly strokeWidth = 8;
-  readonly center = 50;
-  readonly circumference = 2 * Math.PI * this.radius;
+  readonly radius = PROGRESS_RING_CONFIG.RADIUS;
+  readonly strokeWidth = PROGRESS_RING_CONFIG.STROKE_WIDTH;
+  readonly center = PROGRESS_RING_CONFIG.CENTER;
+  readonly circumference = calculateCircumference(this.radius);
 
   readonly dashArray = computed(() => {
     const val = Math.min(100, Math.max(0, this.progress()));
@@ -34,23 +35,18 @@ export class ProgressRingComponent {
     return `${dash} ${this.circumference}`;
   });
 
-  readonly baseRingColor = computed(() => {
-    if (this.disabled()) return '#e0e0e0';
+  readonly colors = computed(() =>
+    this.colorsService.getColors(this.progress(), this.disabled())
+  );
 
-    const val = this.progress();
-    if (val <= 40) return '#fdecea';
-    if (val <= 70) return '#fff3e0';
-    return '#e8f5e9';
-  });
+  readonly baseRingColor = computed(() => this.colors().baseRing);
+  readonly progressColor = computed(() => this.colors().progress);
 
-  readonly progressColor = computed(() => {
-    const val = this.progress();
-    if (val <= 40) return '#f44336';
-    if (val <= 70) return '#ff9800';
-    return '#4caf50';
-  });
-
-  readonly labelColor = computed(() => (this.selected() ? '#3880ff' : '#000'));
+  readonly labelColor = computed(() =>
+    this.selected()
+      ? PROGRESS_RING_CONFIG.SELECTED_COLOR
+      : PROGRESS_RING_CONFIG.DEFAULT_LABEL_COLOR
+  );
 
   readonly isNumberLabel = computed(() => {
     const value = this.label();
@@ -59,10 +55,13 @@ export class ProgressRingComponent {
 
   readonly resolvedIcon = computed(() => {
     const name = this.label();
+    if (typeof name !== 'string') return undefined;
     return (Icons as Record<string, any>)[name];
   });
 
-  onClick() {
-    this.selectedChange.emit();
+  onClick(): void {
+    if (!this.disabled()) {
+      this.selectedChange.emit();
+    }
   }
 }

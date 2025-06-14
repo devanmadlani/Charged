@@ -18,15 +18,31 @@ export const en = {
     TITLE: 'Settings',
   },
   ONBOARDING_PAGE: {
-    TITLE: '7 minutes. One scan. A clearer path forward.',
-    USE_ANSWERS_TO_BUILD_HABITS:
-      "We'll use your answers to help you build habits that actually stick.",
-    START_YOUR_JOURNEY: 'Start your journey',
+    WELCOME_TITLE: 'Welcome to Charged',
+    WELCOME_DESCRIPTION_1:
+      'Charged starts with personal insight - in your body, behavior, and daily life. That’s the starting point for real change.',
+    WELCOME_DESCRIPTION_2:
+      'That’s exactly what we’re missing. That’s why we’re building Charged: a system and movement to make healthy habits fun, social, and achievable.',
+    WELCOME_DESCRIPTION_3:
+      'For everyone who wants control and wants to live healthier – not just when it’s hard, but every day again.',
+    CHANGE_SYSTEM_TITLE: 'Together we change the system',
+    CHANGE_SYSTEM_DESCRIPTION_1:
+      'Health is not what you have, but what you do. Every day again, in your own way, but never alone.',
+    CHANGE_SYSTEM_DESCRIPTION_2:
+      'Charged makes healthy behavior accessible for everyone who wants to. And for those who want to go further, we offer in-depth opportunities to go as far and as personal as you choose.',
+    CHANGE_SYSTEM_DESCRIPTION_3:
+      'For everyone who wants control and wants to live healthier – not just when it’s hard, but every day again.',
+    REVIEW_TITLE: 'Review your answers',
+    REVIEW_DESCRIPTION_1:
+      'Charged gave me insight into my behavior – and how I could change it. No judgment, just structure. Exactly what I needed to keep going.',
+    EMAIL_TITLE: 'Enter your email to start your self-scan',
+    EMAIL_DESCRIPTION_1:
+      'We’ll use this to connect your scan results to your account — or create one for you.',
     CONTINUE: 'Continue',
-    DO_IT_LATER: "I'll do this later",
-    SCAN_TRACKERS_STICK_TO_HABIT: 'Scan-takers stick to habits more often.',
     BACK: 'Back',
     SKIP: 'Skip',
-    EMAIL: 'DFGHRTHNFGN',
+    LOGIN: 'Login',
+    EMAIL: 'Email',
+    START_YOUR_JOURNEY: 'Start your journey',
   },
 };

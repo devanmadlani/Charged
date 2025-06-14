@@ -1,72 +1,73 @@
-// ion-content.custom-content {
-//   --background: linear-gradient(135deg, #ffffff 0%, #f0faf2 100%);
-//   --background-size: cover;
-// }
+.onboarding-content {
+  --background: #ffffff;
+  text-align: center;
+}
 
-// .custom-content {
-//   --background: linear-gradient(135deg, #ffffff 0%, #f0faf2 100%);
-//   text-align: center;
-//   display: flex;
-//   flex-direction: column;
-// }
-
-.page-container {
+.onboarding-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  min-height: calc(100vh - 56px); // Subtract header height
   padding: 20px;
 }
 
-.top-section {
+.onboarding-step {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
 
-  .type-form {
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .centered {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1;
-    width: 100%;
-  }
+.icon-section {
+  flex: 0 0 auto;
+  margin-bottom: 40px;
 
   .main-icon {
-    font-size: 100px;
-    color: var(--ion-color-medium);
-    margin-bottom: auto;
+    color: #333333;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  width: 100%;
+
+  .main-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
   }
 
-  .bottom-text {
-    margin-top: auto;
-    margin-bottom: 20px;
+  .subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    margin: 0 0 32px 0;
+    line-height: 1.4;
+  }
 
-    h2 {
-      font-size: 24px;
-      font-weight: bold;
+  .description-text {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 100%;
+
+    p {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.5;
       margin-bottom: 16px;
-    }
 
-    .description {
-      font-size: small;
-      color: var(--ion-color-medium);
-      margin-bottom: 16px;
-    }
-
-    .success-text {
-      display: flex;
-      font-size: small;
-      color: var(--ion-color-success);
-
-      ion-icon {
-        margin-right: 6px;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -76,7 +77,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-bottom: 20px;
+  margin-top: auto;
+  padding-top: 20px;
 
   ion-button {
     font-size: 16px;
@@ -93,4 +95,10 @@
   height: 56px;
   font-size: 18px;
   font-weight: 600;
+}
+
+.error-text {
+  font-size: 12px;
+  margin-top: 4px;
+  padding-left: 16px;
 }

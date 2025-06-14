@@ -2,7 +2,12 @@
   <ion-toolbar>
     @if (currentStepIndex() > 0) {
     <ion-buttons slot="start">
-      <ion-button fill="clear" (click)="previous()" class="icon-button">
+      <ion-button
+        fill="clear"
+        color="primary"
+        (click)="previous()"
+        class="icon-button"
+      >
         <hugeicons-icon
           [icon]="ArrowLeft01Icon"
           [size]="20"
@@ -20,104 +25,124 @@
     <ion-title>{{'ONBOARDING_PAGE.START_YOUR_JOURNEY' | translate}}</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button fill="clear" (click)="skip()">Skip</ion-button>
+      <ion-button fill="clear" color="primary" (click)="login()">
+        {{ 'ONBOARDING_PAGE.LOGIN' | translate }}
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 
   <ion-progress-bar [value]="progress()"></ion-progress-bar>
 </ion-header>
 
-<ion-content class="custom-content" fullscreen="true">
-  <div class="page-container">
+<ion-content class="onboarding-content" fullscreen="true">
+  <div class="onboarding-container">
     @switch(currentStep()) { @case(OnboardingStep.One) {
-    <div class="top-section">
-      <div class="centered">
+    <div class="onboarding-step">
+      <div class="icon-section">
         <hugeicons-icon
-          [icon]="AiScanIcon"
-          [size]="100"
+          [icon]="Sun03Icon"
+          [size]="120"
           color="currentColor"
           [strokeWidth]="1.5"
+          class="main-icon"
         ></hugeicons-icon>
       </div>
-      <div class="bottom-text">
-        <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
-
-        <p class="description">
-          {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
-        </p>
-
-        <div class="success-text">
-          <hugeicons-icon
-            [icon]="Tick01Icon"
-            [size]="15"
-            color="currentColor"
-            [strokeWidth]="1.5"
-          ></hugeicons-icon>
-          <span
-            >{{'ONBOARDING_PAGE.SCAN_TRACKERS_STICK_TO_HABIT' |
-            translate}}</span
-          >
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.WELCOME_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.WELCOME_DESCRIPTION_1' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.WELCOME_DESCRIPTION_2' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.WELCOME_DESCRIPTION_3' | translate}}</p>
         </div>
       </div>
     </div>
     } @case(OnboardingStep.Two) {
-    <div class="top-section">
-      <div class="centered">
+    <div class="onboarding-step">
+      <div class="icon-section">
         <hugeicons-icon
-          [icon]="Search02Icon"
-          [size]="100"
+          [icon]="Sun03Icon"
+          [size]="120"
           color="currentColor"
           [strokeWidth]="1.5"
+          class="main-icon"
         ></hugeicons-icon>
       </div>
-      <div>
-        <div class="bottom-text">
-          <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
 
-          <p class="description">
-            {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
-          </p>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.CHANGE_SYSTEM_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.CHANGE_SYSTEM_DESCRIPTION_1' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.CHANGE_SYSTEM_DESCRIPTION_2' | translate}}</p>
         </div>
       </div>
     </div>
     } @case(OnboardingStep.Three) {
-    <div class="top-section">
-      <div class="centered">
-        <div class="top-section">
-          <div class="centered">
-            <hugeicons-icon
-              [icon]="MailAccount01Icon"
-              [size]="100"
-              color="currentColor"
-              [strokeWidth]="1.5"
-            ></hugeicons-icon>
-          </div>
-          <div>
-            <div class="bottom-text">
-              <h2>{{'ONBOARDING_PAGE.TITLE' | translate}}</h2>
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="Sun03Icon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
 
-              <p class="description">
-                {{'ONBOARDING_PAGE.USE_ANSWERS_TO_BUILD_HABITS' | translate}}
-              </p>
-
-              <form>
-                <ion-item>
-                  <ion-label position="floating"
-                    >{{'ONBOARDING_PAGE.EMAIL' | translate}}</ion-label
-                  >
-                  <ion-input
-                    [(ngModel)]="email"
-                    name="email"
-                    type="email"
-                    required
-                  ></ion-input>
-                </ion-item>
-              </form>
-            </div>
-          </div>
-        </div>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.REVIEW_TITLE' | translate}}
+        </h1>
+        <h2 class="subtitle">
+          {{'ONBOARDING_PAGE.REVIEW_DESCRIPTION_1' | translate}}
+        </h2>
       </div>
     </div>
+    } @case(OnboardingStep.Email) {
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="Sun03Icon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.EMAIL_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.EMAIL_DESCRIPTION_1' | translate}}</p>
+        </div>
+        <form>
+          <ion-item [class.ion-invalid]="emailError()">
+            <ion-label position="floating"
+              >{{'ONBOARDING_PAGE.EMAIL' | translate}}</ion-label
+            >
+            <ion-input
+              [value]="email()"
+              (ionInput)="onEmailChange($event.detail.value!)"
+              name="email"
+              type="email"
+              required
+              [class.ion-invalid]="emailError()"
+            ></ion-input>
+          </ion-item>
+          @if (emailError()) {
+          <ion-text color="danger" class="error-text">
+            {{ emailError() }}
+          </ion-text>
+          }
+        </form>
+      </div>
+    </div>
+
     } @case(OnboardingStep.Four) {
     <div>
       <div class="centered">
@@ -125,15 +150,41 @@
       </div>
     </div>
     } @case(OnboardingStep.Final) {
-    <ion-text>{{ message }}</ion-text>
+
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="Sun03Icon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.WELCOME_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.WELCOME_DESCRIPTION_1' | translate}}</p>
+        </div>
+      </div>
+    </div>
+
+    @if (message()) {
+    <ion-text [color]="message().includes('Error') ? 'danger' : 'success'">
+      {{ message() }}
+    </ion-text>
+    }
 
     <ion-button
       class="rounded-button"
       expand="block"
       shape="round"
       (click)="sendMagicLink()"
+      [disabled]="isLoading()"
     >
-      {{ isLoading ? 'Sending...' : 'Send Magic Link' }}
+      {{ isLoading() ? 'Sending...' : 'Send Magic Link' }}
     </ion-button>
 
     } } @if(currentStep()!== OnboardingStep.Final) {
@@ -143,6 +194,7 @@
         expand="block"
         shape="round"
         (click)="next()"
+        [disabled]="!canProceed()"
       >
         @if (currentStep() === OnboardingStep.Final) { Finish } @else { Continue
         }
@@ -152,9 +204,9 @@
         class="rounded-button"
         fill="clear"
         class="later-button"
-        (click)="skip()"
+        (click)="login()"
       >
-        {{'ONBOARDING_PAGE.DO_IT_LATER' | translate}}
+        {{'ONBOARDING_PAGE.SKIP' | translate}}
       </ion-button>
     </div>
     }

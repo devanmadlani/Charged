@@ -9,10 +9,10 @@ import {
 import { ProgressRingComponent } from '@shared';
 
 @Component({
-  selector: 'app-scan-list-item',
+  selector: 'app-scan-accordion-list',
   standalone: true,
-  templateUrl: './scan-list-item.component.html',
-  styleUrls: ['./scan-list-item.component.scss'],
+  templateUrl: './scan-accordion-list.component.html',
+  styleUrls: ['./scan-accordion-list.component.scss'],
   imports: [
     IonLabel,
     IonIcon,
@@ -22,7 +22,7 @@ import { ProgressRingComponent } from '@shared';
     ProgressRingComponent,
   ],
 })
-export class ScanListItemComponent implements OnInit {
+export class ScanAccordionListComponent implements OnInit {
   data = [
     {
       label: 'Movement',

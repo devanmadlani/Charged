@@ -11,7 +11,7 @@ import {
   IonRow,
 } from '@ionic/angular/standalone';
 import { LineChartComponent, ScoreProgressBarComponent } from '@shared';
-import { ScanListItemComponent } from 'app/features/scan-list-item/scan-list-item.component';
+import { ScanAccordionListComponent } from '../../features/scan-accordion-list/scan-accordion-list.component';
 
 @Component({
   selector: 'app-self-scan',
@@ -29,7 +29,7 @@ import { ScanListItemComponent } from 'app/features/scan-list-item/scan-list-ite
     HugeiconsIconComponent,
     ScoreProgressBarComponent,
     LineChartComponent,
-    ScanListItemComponent,
+    ScanAccordionListComponent,
   ],
 })
 export class SelfScanPage {

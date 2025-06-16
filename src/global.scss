@@ -176,8 +176,8 @@ ion-button {
 // }
 
 .page-header-bg {
-  background-color: #0d2c56;
-  color: white;
+  background-color: #f0f9ff;
+  color: var(--ion-text-color);
   padding: 16px;
   padding-bottom: 100px;
 }
@@ -188,7 +188,6 @@ ion-button {
   gap: 4px;
   font-size: 16px;
   font-weight: 500;
-  color: white;
   cursor: pointer;
 
   ion-icon {
@@ -200,12 +199,10 @@ ion-button {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: white;
 }
 
 .avatar-initial {
-  background-color: #2d4d74;
-  color: white;
+  background-color: var(--ion-color-primary);
   width: 36px;
   height: 36px;
   border-radius: 50%;

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ScanListItemComponent } from './scan-list-item.component';
+import { ScanAccordionListComponent } from './scan-accordion-list.component';
 
-describe('ScanListItemComponent', () => {
-  let component: ScanListItemComponent;
-  let fixture: ComponentFixture<ScanListItemComponent>;
+describe('ScanAccordionListComponent', () => {
+  let component: ScanAccordionListComponent;
+  let fixture: ComponentFixture<ScanAccordionListComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScanListItemComponent ],
+      declarations: [ ScanAccordionListComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ScanListItemComponent);
+    fixture = TestBed.createComponent(ScanAccordionListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

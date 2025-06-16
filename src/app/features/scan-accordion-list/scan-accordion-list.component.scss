@@ -1,19 +1,21 @@
 .scan-list {
   --border-width: 0;
-  padding: 0 12px;
+  padding: 0 16px;
+  background: transparent;
 }
 
 .scan-card {
   border-radius: 20px;
   margin-bottom: 16px;
-  background: white;
+  background: var(--ion-background-color, white);
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 
   ion-item.scan-card-header {
-    --background: transparent;
-    --inner-padding-end: 12px;
+    --background: var(--ion-background-color, white);
+    --inner-padding-end: 16px;
+    --inner-padding-start: 16px;
     --min-height: 72px;
     --border-width: 0;
     border-bottom: none !important;
@@ -21,31 +23,196 @@
     align-items: center;
   }
 
+  .card-icon {
+    font-size: 24px;
+    margin-right: 12px;
+    color: var(--ion-color-medium, #666);
+  }
+
   .card-title {
     font-weight: 700;
     font-size: 16px;
     margin: 0;
+    color: var(--ion-text-color, #000);
   }
 
   .card-subtext {
     font-size: 13px;
-    color: #28a745;
+    color: var(--ion-color-medium, #666);
     margin-top: 4px;
   }
 
-  .progress-ring-wrapper {
-    width: 80px;
-    height: 80px;
+  .badge-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .progress-badge {
+    color: white;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
+  }
+
+  .expand-icon {
+    font-size: 16px;
+    color: var(--ion-color-medium, #666);
   }
 
   .scan-card-content {
     padding: 16px;
     font-size: 14px;
-    background: #fafafa;
-    color: #444;
-    border-top: 1px solid #eee;
+    background: var(--ion-background-color, white);
+    color: var(--ion-text-color, #444);
+    border-top: 1px solid var(--ion-color-light, #eee);
+  }
+
+  .description-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ion-text-color, #444);
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+
+  .difference-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+
+  .difference-label {
+    font-size: 14px;
+    color: var(--ion-text-color, #333);
+    font-weight: 500;
+  }
+
+  .difference-badge {
+    background: var(--ion-color-light, #f4f5f8);
+    color: var(--ion-text-color, #333);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--ion-color-light-shade, #e0e0e0);
+  }
+
+  .content-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    color: var(--ion-text-color, #333);
+  }
+
+  .chart-container {
+    min-height: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    background: var(--ion-background-color, white);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid var(--ion-color-light, #eee);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    app-line-chart {
+      display: block;
+      width: 100%;
+      height: 150px;
+      max-height: 150px;
+    }
+  }
+
+  .view-analysis-wrapper {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+    clear: both;
+  }
+
+  .view-analysis-btn {
+    background: transparent;
+    border: 2px solid var(--ion-color-primary, #007bff);
+    color: var(--ion-color-primary, #007bff);
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+
+    &:hover {
+      background: var(--ion-color-primary, #007bff);
+      color: white;
+    }
+
+    ion-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+// Light theme specific styles
+:host {
+  .scan-list {
+    background: var(--ion-background-color, #f8f9fa);
+  }
+
+  .scan-card {
+    background: white;
+
+    ion-item.scan-card-header {
+      --background: white;
+    }
+
+    .scan-card-content {
+      background: white;
+    }
+
+    .chart-container {
+      background: white;
+    }
+  }
+}
+
+// Dark theme support
+@media (prefers-color-scheme: dark) {
+  .scan-card {
+    background: var(--ion-card-background, #1e1e1e);
+
+    ion-item.scan-card-header {
+      --background: var(--ion-card-background, #1e1e1e);
+    }
+
+    .scan-card-content {
+      background: var(--ion-card-background, #1e1e1e);
+      color: var(--ion-text-color, #ccc);
+    }
+
+    .card-subtext {
+      color: var(--ion-color-medium, #999);
+    }
+
+    .content-title {
+      color: var(--ion-text-color, #fff);
+    }
+
+    .chart-container {
+      background: var(--ion-card-background, #333);
+    }
   }
 }

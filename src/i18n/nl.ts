@@ -44,6 +44,21 @@ export const nl = {
   SETTINGS_PAGE: {
     TITLE: 'Instellingen',
   },
+  SCAN_ACCORDION: {
+    DIFFERENCE_WITH_LAST_SCAN: 'Verschil met laatste scan',
+    OVERALL_PROGRESS: 'Algehele vooruitgang',
+    VIEW_FULL_ANALYSIS: 'Bekijk volledige analyse',
+    MOVEMENT: 'Beweging',
+    NUTRITION: 'Voeding',
+    MINDSET: 'Mindset',
+    BEWEGING: 'Beweging',
+    MOVEMENT_DESCRIPTION:
+      'Je Bewegingsscore is geweldig! Je hebt een zeer actieve levensstijl die je fysieke gezondheid en vitaliteit heel goed ondersteunt.',
+    NUTRITION_DESCRIPTION:
+      'Je Voedingsscore laat ruimte voor verbetering zien. Focus op evenwichtige maaltijden en consistente gezonde eetgewoonten.',
+    MINDSET_DESCRIPTION:
+      'Je Mindset-score is uitstekend! Je behoudt een positieve mentale houding en goede stressbeheersing.',
+  },
   ONBOARDING_PAGE: {
     WELCOME_TITLE: 'Welkom bij Charged Tof dat je meedoet.',
     WELCOME_DESCRIPTION_1:

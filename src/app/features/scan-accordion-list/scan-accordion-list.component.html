@@ -1,41 +1,66 @@
-<ion-accordion-group class="scan-list">
-  @for (item of data; track item.label) {
-  <ion-accordion [value]="item.label" class="scan-card">
-    <ion-item slot="header" class="scan-card-header">
-      <ion-icon slot="start" [name]="item.icon" class="card-icon"></ion-icon>
+<div class="scan-list">
+  <h1>Scan Accordion List</h1>
+  <ion-accordion-group>
+    @for (item of data(); track item.label) {
+    <ion-accordion [value]="item.label" class="scan-card">
+      <ion-item slot="header" class="scan-card-header">
+        <hugeicons-icon
+          slot="start"
+          [icon]="item.icon"
+          [size]="24"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="card-icon"
+        >
+        </hugeicons-icon>
 
-      <ion-label>
-        <h2 class="card-title">{{ item.label }}</h2>
-        <p class="card-subtext">
-          <ion-icon
-            [name]="
-              item.diff > 0
-                ? 'caret-up-outline'
-                : item.diff < 0
-                ? 'caret-down-outline'
-                : 'remove-outline'
-            "
-            [color]="
-              item.diff > 0 ? 'success' : item.diff < 0 ? 'danger' : 'medium'
-            "
-          ></ion-icon>
-          {{ item.diff > 0 ? "+" : item.diff < 0 ? "" : ""
-          }}{{ item.diff }} since last scan
+        <ion-label>
+          <h2 class="card-title">{{ item.label | translate }}</h2>
+        </ion-label>
+
+        <div slot="end" class="badge-wrapper">
+          <ion-badge
+            [style.background-color]="getBadgeColor(item.progress)"
+            class="progress-badge"
+          >
+            {{ item.progress }}
+          </ion-badge>
+          <ion-icon name="chevron-up-outline" class="expand-icon"></ion-icon>
+        </div>
+      </ion-item>
+
+      <div slot="content" class="scan-card-content">
+        @if (item.description) {
+        <p class="description-text">{{ item.description | translate }}</p>
+        }
+
+        <div class="difference-section">
+          <span class="difference-label">{{
+            item.differenceLabel
+              ? (item.differenceLabel | translate)
+              : ("SCAN_ACCORDION.DIFFERENCE_WITH_LAST_SCAN" | translate)
+          }}</span>
+          <div class="difference-badge">
+            {{ item.diff > 0 ? "+" : item.diff < 0 ? "" : "" }}{{ item.diff }}
+          </div>
+        </div>
+
+        <p class="content-title">
+          {{ "SCAN_ACCORDION.OVERALL_PROGRESS" | translate }}
         </p>
-      </ion-label>
-
-      <div slot="end" class="progress-ring-wrapper">
-        <app-progress-ring
-          [progress]="item.progress"
-          [label]="item.progress.toString()"
-          [disabled]="item.disabled"
-        ></app-progress-ring>
+        @if (item.chartData) {
+        <div class="chart-container">
+          <app-line-chart [data]="item.chartData"></app-line-chart>
+        </div>
+        }
+        <div class="view-analysis-wrapper">
+          <button class="view-analysis-btn">
+            {{ "SCAN_ACCORDION.VIEW_FULL_ANALYSIS" | translate }}
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+        </div>
       </div>
-    </ion-item>
-
-    <div slot="content" class="scan-card-content">
-      <p>{{ item.label }}</p>
-    </div>
-  </ion-accordion>
-  }
-</ion-accordion-group>
+    </ion-accordion>
+    }
+  </ion-accordion-group>
+</div>

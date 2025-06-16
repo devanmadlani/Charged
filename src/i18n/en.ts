@@ -44,6 +44,21 @@ export const en = {
   SETTINGS_PAGE: {
     TITLE: 'Settings',
   },
+  SCAN_ACCORDION: {
+    DIFFERENCE_WITH_LAST_SCAN: 'Difference with last scan',
+    OVERALL_PROGRESS: 'Overall progress',
+    VIEW_FULL_ANALYSIS: 'View full analysis',
+    MOVEMENT: 'Movement',
+    NUTRITION: 'Nutrition',
+    MINDSET: 'Mindset',
+    BEWEGING: 'Beweging',
+    MOVEMENT_DESCRIPTION:
+      'Your Movement Score is great! You have a very active lifestyle that supports your physical health and vitality very well.',
+    NUTRITION_DESCRIPTION:
+      'Your Nutrition Score shows room for improvement. Focus on balanced meals and consistent healthy eating habits.',
+    MINDSET_DESCRIPTION:
+      'Your Mindset Score is excellent! You maintain a positive mental attitude and good stress management practices.',
+  },
   ONBOARDING_PAGE: {
     WELCOME_TITLE: 'Welcome to Charged',
     WELCOME_DESCRIPTION_1:

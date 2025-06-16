@@ -26,8 +26,13 @@
     />
     }
 
-    <!-- Center content: number or icon -->
-    @if (isNumberLabel()) {
+    <!-- Center content: dots when disabled, otherwise number or icon -->
+    @if (disabled()) {
+    <!-- Three dots for disabled state -->
+    <circle cx="42" cy="50" r="2" [attr.fill]="labelColor()" />
+    <circle cx="50" cy="50" r="2" [attr.fill]="labelColor()" />
+    <circle cx="58" cy="50" r="2" [attr.fill]="labelColor()" />
+    } @else if (isNumberLabel()) {
     <text
       x="50"
       y="54"

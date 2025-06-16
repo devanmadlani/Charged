@@ -19,7 +19,7 @@ export const HOME_SCAN_CARDS: ScanCardListItemData[] = [
     url: '/self-scan',
   },
   {
-    progress: 64,
+    progress: 39,
     title: 'HOME_PAGE.SCAN_CARDS.HEALTH_SCAN.TITLE',
     description: 'HOME_PAGE.SCAN_CARDS.HEALTH_SCAN.DESCRIPTION',
     date: '12 June 2025',

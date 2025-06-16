@@ -1,0 +1,41 @@
+<ion-card
+  class="scan-card-list-item"
+  [class.disabled]="data()?.disabled"
+  (click)="onCardClick()"
+>
+  <div class="progress-ring-wrapper">
+    <app-progress-ring
+      [progress]="data()?.progress || 0"
+      [label]="(data()?.progress || 0).toString()"
+      [disabled]="data()?.disabled || false"
+    ></app-progress-ring>
+  </div>
+
+  <ion-item lines="none" class="card-content-item">
+    <hugeicons-icon
+      slot="start"
+      [icon]="data()?.icon || Brain02Icon"
+      [size]="24"
+      color="currentColor"
+      [strokeWidth]="1.5"
+    ></hugeicons-icon>
+
+    <ion-label>
+      <h2 class="card-title">{{ data()?.title || "" | translate }}</h2>
+      <p class="card-description">
+        {{ data()?.description || "" | translate }}
+      </p>
+      <p class="card-date">
+        {{ data()?.dateLabel || "" | translate }} {{ data()?.date || "" }}
+      </p>
+    </ion-label>
+
+    <hugeicons-icon
+      slot="end"
+      [icon]="ArrowRight01Icon"
+      [size]="20"
+      color="currentColor"
+      [strokeWidth]="1.5"
+    ></hugeicons-icon>
+  </ion-item>
+</ion-card>

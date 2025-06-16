@@ -5,12 +5,23 @@ import {
   IonAvatar,
   IonCol,
   IonContent,
+  IonItem,
   IonLabel,
   IonRow,
+  IonText,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { ScoreProgressBarComponent } from '@shared';
-import { ScanCardGridComponent } from 'app/features/scan-card-grid/scan-card-grid.component';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import {
+  ScanCardListItemComponent,
+  ScanCardListItemData,
+  ScoreProgressBarComponent,
+} from '@shared';
+import {
+  HOME_SCAN_CARDS,
+  COMING_SOON_ITEMS,
+  ComingSoonItem,
+} from './home.config';
 
 @Component({
   selector: 'app-home',
@@ -20,37 +31,24 @@ import { ScanCardGridComponent } from 'app/features/scan-card-grid/scan-card-gri
   imports: [
     IonCol,
     IonAvatar,
+    IonItem,
     IonLabel,
     IonRow,
     IonContent,
+    IonText,
     CommonModule,
     FormsModule,
     TranslateModule,
+    HugeiconsIconComponent,
     ScoreProgressBarComponent,
-    ScanCardGridComponent,
+    ScanCardListItemComponent,
   ],
 })
 export class HomePage {
-  data = [
-    { label: 'Self', progress: 10, url: '/self-scan' },
-    {
-      label: 'Health',
-      progress: 90,
-      iconLabel: 'HealthIcon',
-      url: '/health',
-    },
-    {
-      label: 'Sleep',
-      progress: 50,
-      iconLabel: 'SleepingIcon',
-      disabled: false,
-    },
-    {
-      label: 'DNA',
-      progress: 0,
-      iconLabel: 'Dna01Icon',
-      disabled: true,
-    },
-    { label: 'Blood', progress: 0, iconLabel: 'LabsIcon', disabled: true },
-  ];
+  scanCardData: ScanCardListItemData[] = HOME_SCAN_CARDS;
+  comingSoonItems: ComingSoonItem[] = COMING_SOON_ITEMS;
+
+  onScanCardClick(data: ScanCardListItemData): void {
+    console.log('Scan card clicked:', data);
+  }
 }

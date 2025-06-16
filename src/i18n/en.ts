@@ -7,6 +7,33 @@ export const en = {
   },
   HOME_PAGE: {
     TITLE: 'Welcome!',
+    SCAN_CARDS: {
+      SELF_SCAN: {
+        TITLE: 'Self scan',
+        DESCRIPTION: 'Based on your answers - 100% free',
+        DATE_LABEL: 'Last taken:',
+      },
+      HEALTH_SCAN: {
+        TITLE: 'Health scan',
+        DESCRIPTION: 'Based on your physical scan & coaching conversation',
+        DATE_LABEL: 'Last taken:',
+      },
+    },
+    COMING_SOON: {
+      TITLE: 'Coming soon',
+      BLOOD: {
+        TITLE: 'Blood',
+        DESCRIPTION: 'Coming soon',
+      },
+      DNA: {
+        TITLE: 'DNA',
+        DESCRIPTION: 'Coming soon',
+      },
+      SLEEP: {
+        TITLE: 'Sleep',
+        DESCRIPTION: 'Coming soon',
+      },
+    },
   },
   TABS: {
     PLAN: 'Plan',

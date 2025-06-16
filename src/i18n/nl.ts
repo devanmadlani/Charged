@@ -7,6 +7,33 @@ export const nl = {
   },
   HOME_PAGE: {
     TITLE: 'Welkom!',
+    SCAN_CARDS: {
+      SELF_SCAN: {
+        TITLE: 'Self scan',
+        DESCRIPTION: 'Gebaseerd op je antwoorden - 100% gratis',
+        DATE_LABEL: 'Laatst genomen:',
+      },
+      HEALTH_SCAN: {
+        TITLE: 'Health scan',
+        DESCRIPTION: 'Op basis van je fysieke scan & coachgesprek',
+        DATE_LABEL: 'Laatst genomen:',
+      },
+    },
+    COMING_SOON: {
+      TITLE: 'Binnenkort',
+      BLOOD: {
+        TITLE: 'Blood',
+        DESCRIPTION: 'Binnenkort',
+      },
+      DNA: {
+        TITLE: 'DNA',
+        DESCRIPTION: 'Binnenkort',
+      },
+      SLEEP: {
+        TITLE: 'Sleep',
+        DESCRIPTION: 'Binnenkort',
+      },
+    },
   },
   TABS: {
     PLAN: 'Plannen',

@@ -43,3 +43,27 @@ export class ScanCardGridComponent {
     }
   }
 }
+
+// mock data for the scan card grid
+// data = [
+//   { label: 'Self', progress: 10, url: '/self-scan' },
+//   {
+//     label: 'Health',
+//     progress: 90,
+//     iconLabel: 'HealthIcon',
+//     url: '/health',
+//   },
+//   {
+//     label: 'Sleep',
+//     progress: 50,
+//     iconLabel: 'SleepingIcon',
+//     disabled: false,
+//   },
+//   {
+//     label: 'DNA',
+//     progress: 0,
+//     iconLabel: 'Dna01Icon',
+//     disabled: true,
+//   },
+//   { label: 'Blood', progress: 0, iconLabel: 'LabsIcon', disabled: true },
+// ];

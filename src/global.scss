@@ -179,7 +179,7 @@ ion-button {
   background-color: #f0f9ff;
   color: var(--ion-text-color);
   padding: 16px;
-  padding-bottom: 100px;
+  // padding-bottom: 100px; // this is for when content needs to be overlapped by the header
 }
 
 .header-left {
@@ -213,7 +213,7 @@ ion-button {
 }
 
 .floating-main-content {
-  margin-top: -100px;
+  // margin-top: -100px; // this is for when content needs to be overlapped by the header
   position: relative;
   z-index: 1;
 }

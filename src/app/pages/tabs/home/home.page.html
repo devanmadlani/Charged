@@ -17,6 +17,46 @@
   </div>
 
   <div class="floating-main-content">
-    <app-scan-card-grid [data]="data"></app-scan-card-grid>
+    @for (card of scanCardData; track card.title) {
+    <app-scan-card-list-item
+      [data]="card"
+      (cardClick)="onScanCardClick($event)"
+    ></app-scan-card-list-item>
+    }
+
+    <div class="coming-soon-section">
+      <ion-text>
+        <h3 class="coming-soon-title">
+          {{ 'HOME_PAGE.COMING_SOON.TITLE' | translate }}
+        </h3>
+      </ion-text>
+
+      <div class="coming-soon-list">
+        @for (item of comingSoonItems; track item.title) {
+        <ion-item lines="none" class="coming-soon-item">
+          <hugeicons-icon
+            slot="start"
+            [icon]="item.icon"
+            [size]="24"
+            color="currentColor"
+            [strokeWidth]="1.5"
+          ></hugeicons-icon>
+
+          <ion-label>
+            <h2 class="item-title">{{ item.title | translate }}</h2>
+            <p class="item-description">{{ item.description | translate }}</p>
+          </ion-label>
+
+          <hugeicons-icon
+            slot="end"
+            [icon]="item.lockIcon"
+            [size]="20"
+            color="currentColor"
+            [strokeWidth]="1.5"
+          ></hugeicons-icon>
+        </ion-item>
+        }
+      </div>
+    </div>
   </div>
 </ion-content>

@@ -45,7 +45,7 @@ export class LoginPage {
   weekTrackerData: any = {
     title: 'Morning walk',
     weeklyGoal: 5,
-    currentProgress: 0,
+    currentProgress: 3,
     buildPhase: 'Build phase 2/4',
     iconType: 'droplet',
   };

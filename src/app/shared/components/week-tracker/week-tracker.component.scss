@@ -59,8 +59,9 @@
 }
 
 .week-days-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 0;
 }
 
@@ -69,6 +70,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  flex: 1;
 
   .day-short {
     font-size: 12px;
@@ -76,6 +78,20 @@
     color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+  }
+}
+
+.day-spacing {
+  width: 8px;
+  aspect-ratio: 1;
+  min-height: 44px;
+  margin-top: 28px; // Align with day buttons (day-short height + gap)
+  flex-shrink: 0;
+
+  &.day-spacing-connected {
+    background-color: #e0d6fd;
+    border-top: 1px solid #7c3aed;
+    border-bottom: 1px solid #7c3aed;
   }
 }
 
@@ -240,6 +256,12 @@
     .day-short {
       font-size: 10px;
     }
+  }
+
+  .day-spacing {
+    width: 6px;
+    min-height: 42px;
+    margin-top: 18px;
   }
 
   .day-tile {

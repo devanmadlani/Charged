@@ -11,7 +11,7 @@
   <!-- Week days grid -->
   <div class="week-days-container">
     <div class="week-days-grid">
-      @for (day of weekDays; track day.date) {
+      @for (day of weekDays; track day.date; let i = $index) {
       <div class="day-column">
         <span class="day-short">{{ day.dayShort }}</span>
         <button
@@ -71,7 +71,14 @@
           }
         </button>
       </div>
-      }
+
+      <!-- Add spacing div between days (except after the last day) -->
+      @if (i < weekDays.length - 1) {
+      <div
+        class="day-spacing"
+        [class.day-spacing-connected]="isSpacingConnected(i)"
+      ></div>
+      } }
     </div>
   </div>
 

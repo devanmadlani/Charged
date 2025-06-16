@@ -94,12 +94,24 @@ export class WeekTrackerComponent implements OnInit {
       const isFuture = date > today;
       const isToday = date.toDateString() === today.toDateString();
 
+      //Show some completed days in the past
+      const currentDayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+      const mondayIndex = currentDayOfWeek === 0 ? 6 : currentDayOfWeek - 1; // Convert to Monday-based index
+
+      //Show last 2-3 completed days before today (if they exist and are past)
+      let shouldBeCompleted = false;
+      if (!isFuture && !isToday) {
+        // mark some past days as completed
+        shouldBeCompleted =
+          i < mondayIndex && i >= Math.max(0, mondayIndex - 3);
+      }
+
       days.push({
         date: date,
         dayName: dayNames[i],
         dayShort: dayShorts[i],
-        isDone: false, // This should be set based on actual data
-        isMissed: isPast && !isToday, // Past days that weren't completed
+        isDone: shouldBeCompleted,
+        isMissed: isPast && !isToday && !shouldBeCompleted,
         isFuture: isFuture,
         streakType: 'none',
       });
@@ -223,5 +235,16 @@ export class WeekTrackerComponent implements OnInit {
     return groups.length > 0
       ? Math.max(...groups.map((group) => group.length))
       : 0;
+  }
+
+  /**
+   * Check if the spacing between two consecutive days should be styled as connected
+   * This happens when both the current day and the next day are completed
+   */
+  isSpacingConnected(currentDayIndex: number): boolean {
+    const currentDay = this.weekDays[currentDayIndex];
+    const nextDay = this.weekDays[currentDayIndex + 1];
+
+    return currentDay?.isDone && nextDay?.isDone;
   }
 }

@@ -1,26 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
 import {
   IonAvatar,
-  IonCol,
   IonContent,
+  IonHeader,
   IonItem,
   IonLabel,
-  IonRow,
   IonText,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { HugeiconsIconComponent } from '@hugeicons/angular';
 import {
   ScanCardListItemComponent,
   ScanCardListItemData,
   ScoreProgressBarComponent,
 } from '@shared';
 import {
-  HOME_SCAN_CARDS,
   COMING_SOON_ITEMS,
   ComingSoonItem,
+  HOME_SCAN_CARDS,
 } from './home.config';
 
 @Component({
@@ -29,11 +30,9 @@ import {
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
-    IonCol,
     IonAvatar,
     IonItem,
     IonLabel,
-    IonRow,
     IonContent,
     IonText,
     CommonModule,
@@ -42,6 +41,9 @@ import {
     HugeiconsIconComponent,
     ScoreProgressBarComponent,
     ScanCardListItemComponent,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
   ],
 })
 export class HomePage {

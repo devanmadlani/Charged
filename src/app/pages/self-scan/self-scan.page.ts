@@ -10,7 +10,7 @@ import {
   IonLabel,
   IonRow,
 } from '@ionic/angular/standalone';
-import { LineChartComponent, ScoreProgressBarComponent } from '@shared';
+import { ScoreProgressBarComponent } from '@shared';
 import { ScanAccordionListComponent } from '../../features/scan-accordion-list/scan-accordion-list.component';
 
 @Component({
@@ -28,7 +28,6 @@ import { ScanAccordionListComponent } from '../../features/scan-accordion-list/s
     FormsModule,
     HugeiconsIconComponent,
     ScoreProgressBarComponent,
-    LineChartComponent,
     ScanAccordionListComponent,
   ],
 })

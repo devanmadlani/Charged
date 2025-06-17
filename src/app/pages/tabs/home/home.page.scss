@@ -1,3 +1,32 @@
+ion-header {
+  ion-toolbar {
+    --background: #f0f9ff;
+    // --border-width: 0;
+  }
+}
+
+.header-avatar {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+
+  ion-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--ion-color-primary, #3880ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-label {
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+}
+
 .coming-soon-section {
   margin-top: 32px;
   padding: 0 16px;

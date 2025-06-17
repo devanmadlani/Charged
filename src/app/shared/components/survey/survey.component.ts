@@ -69,8 +69,9 @@ export class SurveyComponent implements AfterViewInit {
       if (iframe) {
         iframe.style.height = '60vh';
         iframe.style.width = '100%';
-        iframe.style.position = 'absolute';
-        iframe.style.top = '0';
+        iframe.style.position = 'static';
+        iframe.style.display = 'block';
+        iframe.style.margin = '0 auto';
       } else {
         console.warn('iframe not found for post-style patching');
       }

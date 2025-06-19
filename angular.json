@@ -20,6 +20,7 @@
           "options": {
             "outputPath": "docs",
             "index": "src/index.html",
+            "browser": "src/main.ts",
             "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -32,8 +33,7 @@
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": [],
-            "main": "src/main.ts",
-            "baseHref": "/your-repo-name/"
+            "baseHref": "/Charged/"
           },
           "configurations": {
             "production": {

@@ -1,14 +1,20 @@
 <div class="score-progress-bar">
   <ion-text>
     <div class="score-header-row">
-      <p class="label">Overall Healthy Habit Score</p>
-      <p class="score-value">{{ score() }}</p>
+      <p class="label">Overall score</p>
+      <p class="score-value">{{ displayValue() }}</p>
     </div>
   </ion-text>
 
-  <ion-progress-bar class="score-bar" [value]="progress()"> </ion-progress-bar>
+  <ion-progress-bar
+    class="score-bar"
+    [value]="normalizedProgress()"
+    [style.--progress-background]="colors().progress"
+    [style.--buffer-background]="colors().baseRing"
+  >
+  </ion-progress-bar>
 
   <ion-text>
-    <p class="score-subtext">Average of all scan scores</p>
+    <p class="score-subtext">{{ description() }}</p>
   </ion-text>
 </div>

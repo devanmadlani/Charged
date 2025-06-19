@@ -8,10 +8,10 @@ import {
   IonBadge,
 } from '@ionic/angular/standalone';
 import { LineChartComponent } from '@shared';
-import { ProgressColorsService } from '../../shared/components/progress-ring/services/progress-colors.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { HugeiconsIconComponent } from '@hugeicons/angular';
 import { FireIcon, Brain02Icon, HomeIcon } from '@hugeicons/core-free-icons';
+import { ProgressColorsService } from '@app-core';
 
 export interface ScanAccordionItem {
   label: string;

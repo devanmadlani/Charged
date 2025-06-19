@@ -1,0 +1,84 @@
+// Modal header styling
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ion-color-dark);
+}
+
+.close-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --min-height: 36px;
+  --min-width: 36px;
+  --border-radius: 50%;
+  --background: var(--ion-color-light);
+
+  hugeicons-icon {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover hugeicons-icon {
+    opacity: 1;
+  }
+}
+
+// Modal content styling
+.modal-content {
+  padding-top: 8px;
+}
+
+.email-input-item {
+  --padding-start: 0;
+  --padding-end: 0;
+  --border-radius: 12px;
+  --background: var(--ion-color-light);
+  margin-bottom: 24px;
+  border: 1px solid var(--ion-color-medium-tint);
+
+  ion-label {
+    font-weight: 500;
+    color: var(--ion-color-dark);
+    margin-bottom: 4px;
+  }
+}
+
+.email-input {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 1rem;
+}
+
+.save-button {
+  --border-radius: 12px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+// Sheet modal specific adjustments
+ion-content {
+  --padding-top: 16px;
+  --padding-bottom: 32px;
+}
+
+// Handle area styling (optional visual enhancement)
+:host {
+  .modal-wrapper {
+    border-radius: 16px 16px 0 0;
+  }
+}

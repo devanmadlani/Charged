@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+  <div class="modal-header">
+    <h1 class="modal-title">Edit Email</h1>
+    <ion-button
+      fill="clear"
+      size="small"
+      (click)="dismiss()"
+      class="close-button"
+    >
+      <hugeicons-icon
+        [icon]="PencilEdit02Icon"
+        [size]="20"
+        [strokeWidth]="2"
+      ></hugeicons-icon>
+    </ion-button>
+  </div>
+
+  <div class="modal-content">
+    <ion-item lines="none" class="email-input-item">
+      <ion-label position="stacked">Email Address</ion-label>
+      <ion-input
+        [(ngModel)]="email"
+        type="email"
+        placeholder="Enter your email"
+        class="email-input"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      (click)="save()"
+      [disabled]="!email || !isValidEmail(email)"
+      class="save-button"
+      size="large"
+    >
+      Save Changes
+    </ion-button>
+  </div>
+</ion-content>

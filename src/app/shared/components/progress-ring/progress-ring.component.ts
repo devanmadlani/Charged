@@ -1,11 +1,11 @@
 import { Component, computed, input, output, inject } from '@angular/core';
 import { HugeiconsIconComponent } from '@hugeicons/angular';
 import * as Icons from '@hugeicons/core-free-icons';
-import { ProgressColorsService } from './services/progress-colors.service';
 import {
   PROGRESS_RING_CONFIG,
   calculateCircumference,
 } from './progress-ring.constants';
+import { ProgressColorsService } from '@app-core';
 
 @Component({
   selector: 'app-progress-ring',

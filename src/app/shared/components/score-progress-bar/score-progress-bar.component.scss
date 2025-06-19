@@ -24,8 +24,16 @@
 
   .score-bar {
     height: 8px;
-    border-radius: 8px;
-    overflow: hidden;
+
+    // Ensure the base ring (background) color is applied
+    &::part(track) {
+      background: var(--buffer-background, #e0e0e0);
+    }
+
+    // Ensure the progress color is applied
+    &::part(progress) {
+      background: var(--progress-background, #2196f3);
+    }
   }
 
   .score-subtext {

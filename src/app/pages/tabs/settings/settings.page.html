@@ -10,20 +10,122 @@
       <ion-title>{{'SETTINGS_PAGE.TITLE' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-select
-    [value]="currentLang"
-    (ionChange)="changeLang($event.detail.value)"
-  >
-    <ion-select-option *ngFor="let lang of availableLangs" [value]="lang.code">
-      {{ lang.label }}
-    </ion-select-option>
-  </ion-select>
-  <ion-item>
-    <ion-label>Dark Mode</ion-label>
-    <ion-toggle
-      slot="end"
-      [checked]="isDark"
-      (ionChange)="toggleDarkMode($event)"
-    ></ion-toggle>
-  </ion-item>
+
+  <!-- User Profile Section -->
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <h2>{{ userName }}</h2>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="openEmailEditModal()">
+        <hugeicons-icon
+          [icon]="PencilEdit02Icon"
+          [size]="24"
+          [strokeWidth]="2"
+        ></hugeicons-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item button>
+      <ion-label>
+        <h3>Email</h3>
+        <p>{{ userEmail }}</p>
+      </ion-label>
+      <hugeicons-icon
+        slot="end"
+        [icon]="ArrowRight01Icon"
+        [size]="24"
+        [strokeWidth]="2"
+      ></hugeicons-icon>
+    </ion-item>
+
+    <ion-item button (click)="openWhatsApp()">
+      <ion-label>
+        <h3>WhatsApp with coach</h3>
+      </ion-label>
+      <hugeicons-icon
+        slot="end"
+        [icon]="ArrowRight01Icon"
+        [size]="24"
+        [strokeWidth]="2"
+      ></hugeicons-icon>
+    </ion-item>
+  </ion-list>
+
+  <!-- Settings Section -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Settings</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Language</ion-label>
+      <ion-select
+        [value]="currentLang"
+        (ionChange)="changeLang($event.detail.value)"
+        slot="end"
+        interface="popover"
+      >
+        <ion-select-option
+          *ngFor="let lang of availableLangs"
+          [value]="lang.code"
+        >
+          {{ lang.label }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Dark mode</ion-label>
+      <ion-toggle
+        slot="end"
+        [checked]="isDark"
+        (ionChange)="toggleDarkMode($event)"
+      ></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <!-- About Section -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>About</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="openPrivacyPolicy()">
+      <ion-label>
+        <h3>Privacy policy</h3>
+      </ion-label>
+      <hugeicons-icon
+        slot="end"
+        [icon]="ArrowRight01Icon"
+        [size]="24"
+        [strokeWidth]="2"
+      ></hugeicons-icon>
+    </ion-item>
+
+    <ion-item button (click)="openTermsAndConditions()">
+      <ion-label>
+        <h3>Terms & conditions</h3>
+      </ion-label>
+      <hugeicons-icon
+        slot="end"
+        [icon]="ArrowRight01Icon"
+        [size]="24"
+        [strokeWidth]="2"
+      ></hugeicons-icon>
+    </ion-item>
+  </ion-list>
+
+  <!-- Logout Section -->
+  <div class="logout-section ion-padding">
+    <ion-button expand="block" fill="outline" color="danger" (click)="logout()">
+      <hugeicons-icon
+        slot="start"
+        [icon]="Logout01Icon"
+        [size]="24"
+        [strokeWidth]="2"
+      ></hugeicons-icon>
+      Log out of this device
+    </ion-button>
+  </div>
 </ion-content>

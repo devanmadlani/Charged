@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HugeiconsIconComponent } from '@hugeicons/angular';
 import { ArrowLeft02Icon } from '@hugeicons/core-free-icons';
 import {
-  IonAvatar,
-  IonCol,
+  IonBackButton,
+  IonButtons,
   IonContent,
-  IonLabel,
-  IonRow,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
 import { ScoreProgressBarComponent } from '@shared';
 import { ScanAccordionListComponent } from '../../features/scan-accordion-list/scan-accordion-list.component';
@@ -19,16 +19,16 @@ import { ScanAccordionListComponent } from '../../features/scan-accordion-list/s
   styleUrls: ['./self-scan.page.scss'],
   standalone: true,
   imports: [
-    IonCol,
-    IonLabel,
-    IonAvatar,
-    IonRow,
     IonContent,
     CommonModule,
     FormsModule,
-    HugeiconsIconComponent,
     ScoreProgressBarComponent,
     ScanAccordionListComponent,
+    IonToolbar,
+    IonButtons,
+    IonBackButton,
+    IonTitle,
+    IonHeader,
   ],
 })
 export class SelfScanPage {

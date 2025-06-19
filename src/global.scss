@@ -217,3 +217,10 @@ ion-button {
   position: relative;
   z-index: 1;
 }
+
+/* --- Reusable Toolbar Background --- */
+ion-header.toolbar-light-bg {
+  ion-toolbar {
+    --background: #f0f9ff;
+  }
+}

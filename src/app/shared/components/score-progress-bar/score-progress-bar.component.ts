@@ -1,5 +1,6 @@
-import { Component, effect, input, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { IonText, IonProgressBar } from '@ionic/angular/standalone';
+import { ProgressColorsService } from '@app-core';
 
 @Component({
   standalone: true,
@@ -9,14 +10,21 @@ import { IonText, IonProgressBar } from '@ionic/angular/standalone';
   imports: [IonProgressBar, IonText],
 })
 export class ScoreProgressBarComponent {
-  score = input<number>();
-  progress = signal(0);
+  progress = input<number>(0);
+  description = input<string>('Description');
+  disabled = input<boolean>(false);
 
-  constructor() {
-    effect(() => {
-      const scoreValue = this.score() ?? 0;
-      const normalizedProgress = Math.min(Math.max(scoreValue / 100, 0), 1);
-      this.progress.set(normalizedProgress);
-    });
-  }
+  colors = computed(() =>
+    this.progressColorsService.getColors(this.progress(), this.disabled())
+  );
+
+  normalizedProgress = computed(() =>
+    Math.min(Math.max(this.progress() / 100, 0), 1)
+  );
+
+  displayValue = computed(() =>
+    this.disabled() ? '...' : this.progress().toString()
+  );
+
+  private readonly progressColorsService = inject(ProgressColorsService);
 }

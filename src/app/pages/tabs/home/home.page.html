@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="toolbar-light-bg">
   <ion-toolbar>
     <ion-title>Scan</ion-title>
     <div slot="end" class="header-avatar">
@@ -10,20 +10,7 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <div class="page-header-bg">
-    <!-- <ion-row
-      class="ion-align-items-center ion-no-padding ion-justify-content-between"
-    >
-      <ion-col class="ion-text-center">
-        <h2 class="header-title">Self</h2>
-      </ion-col>
-
-      <ion-col size="auto" class="ion-text-end">
-        <ion-avatar class="avatar-initial">
-          <ion-label>T</ion-label>
-        </ion-avatar>
-      </ion-col>
-    </ion-row> -->
-    <app-score-progress-bar [score]="70"></app-score-progress-bar>
+    <app-score-progress-bar [progress]="20"></app-score-progress-bar>
   </div>
 
   <div class="floating-main-content">

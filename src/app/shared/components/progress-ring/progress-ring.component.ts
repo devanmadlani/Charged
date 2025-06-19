@@ -39,7 +39,7 @@ export class ProgressRingComponent {
     this.colorsService.getColors(this.progress(), this.disabled())
   );
 
-  readonly baseRingColor = computed(() => this.colors().baseRing);
+  readonly baseRingColor = computed(() => this.colors().background);
   readonly progressColor = computed(() => this.colors().progress);
 
   readonly labelColor = computed(() =>

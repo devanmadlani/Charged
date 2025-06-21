@@ -9,9 +9,20 @@ import {
   ArrowLeft01Icon,
   MailAccount01Icon,
   Search02Icon,
-  Sun03Icon,
   Tick01Icon,
+  StarIcon,
+  MailOpenIcon,
+  LinkSquare01Icon,
+  UserGroupIcon,
+  DatabaseIcon,
+  InfinityIcon,
+  HealthIcon,
+  UserCircle02Icon,
+  Tick02Icon,
+  MailEdit01Icon,
+  ThumbsUpIcon,
 } from '@hugeicons/core-free-icons';
+
 import {
   IonButton,
   IonButtons,
@@ -24,9 +35,15 @@ import {
   IonTitle,
   IonToolbar,
   IonText,
+  IonList,
 } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { SurveyComponent } from '@shared';
+import {
+  ListComponent,
+  SurveyComponent,
+  NotificationComponent,
+  NotificationType,
+} from '@shared';
 import Passwordless from 'supertokens-web-js/recipe/passwordless';
 
 interface PasswordlessResponse {
@@ -34,11 +51,16 @@ interface PasswordlessResponse {
 }
 
 export enum OnboardingStep {
-  One = 'first',
-  Two = 'second',
-  Three = 'third',
-  Email = 'email',
-  Four = 'fourth',
+  Welcome = 'welcome',
+  Mission = 'mission',
+  Review = 'review',
+  DataSecurity = 'dataSecurity',
+  Explanation = 'explanation',
+  HealthPlan = 'healthPlan',
+  ProvideEmail = 'provideEmail',
+  SelfScan = 'selfScan',
+  OpenEmail = 'openEmail',
+  ChangeEmail = 'changeEmail',
   Final = 'last',
 }
 
@@ -65,29 +87,48 @@ export enum OnboardingStep {
     SurveyComponent,
     IonInput,
     HugeiconsIconComponent,
+    IonList,
+    ListComponent,
+    NotificationComponent,
   ],
 })
 export class OnboardingPage {
+  NotificationType = NotificationType;
   OnboardingStep = OnboardingStep;
-  currentStep = signal(OnboardingStep.One);
+  currentStep = signal(OnboardingStep.Welcome);
   TYPEFORM_FORMS = TYPEFORM_FORMS;
   AiScanIcon = AiScanIcon;
   Tick01Icon = Tick01Icon;
   ArrowLeft01Icon = ArrowLeft01Icon;
   Search02Icon = Search02Icon;
   MailAccount01Icon = MailAccount01Icon;
-  Sun03Icon = Sun03Icon;
+  StarIcon = StarIcon;
+  MailOpenIcon = MailOpenIcon;
+  LinkSquare01Icon = LinkSquare01Icon;
+  UserGroupIcon = UserGroupIcon;
+  DatabaseIcon = DatabaseIcon;
+  InfinityIcon = InfinityIcon;
+  HealthIcon = HealthIcon;
+  UserCircle02Icon = UserCircle02Icon;
+  Tick02Icon = Tick02Icon;
+  MailEdit01Icon = MailEdit01Icon;
+  ThumbsUpIcon = ThumbsUpIcon;
   email = signal('');
   message = signal('');
   isLoading = signal(false);
   emailError = signal('');
 
   readonly stepsOrder = [
-    OnboardingStep.One,
-    OnboardingStep.Two,
-    OnboardingStep.Three,
-    OnboardingStep.Email,
-    OnboardingStep.Four,
+    OnboardingStep.Welcome,
+    OnboardingStep.Mission,
+    OnboardingStep.Review,
+    OnboardingStep.DataSecurity,
+    OnboardingStep.Explanation,
+    OnboardingStep.HealthPlan,
+    OnboardingStep.ProvideEmail,
+    OnboardingStep.SelfScan,
+    OnboardingStep.OpenEmail,
+    OnboardingStep.ChangeEmail,
     OnboardingStep.Final,
   ];
 
@@ -102,7 +143,10 @@ export class OnboardingPage {
   // Computed property to check if the current step can proceed
   canProceed = computed(() => {
     const step = this.currentStep();
-    if (step === OnboardingStep.Email) {
+    if (
+      step === OnboardingStep.ProvideEmail ||
+      step === OnboardingStep.ChangeEmail
+    ) {
       return this.email() && !this.emailError();
     }
     return true;

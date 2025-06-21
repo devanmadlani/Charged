@@ -1,0 +1,26 @@
+ion-list {
+  margin-right: -16px;
+}
+
+.list-item-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.list-item {
+  flex: 1;
+}
+
+.list-item-text {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 24px;
+}
+
+.list-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

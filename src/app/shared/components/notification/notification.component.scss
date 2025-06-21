@@ -1,0 +1,114 @@
+.notification {
+  width: 100%;
+  border-radius: 4px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid;
+  text-align: left;
+
+  &.inline {
+    border-left-width: 4px;
+    background-color: #ffffff !important;
+    padding: 16px;
+  }
+
+  &.success {
+    background-color: #f3fbf3;
+    border-color: #4fcc4d;
+    .notification-icon {
+      color: #28b282;
+    }
+  }
+
+  &.warning {
+    background-color: #fefdf0;
+    border-color: #debe07;
+    .notification-icon {
+      color: #debe07;
+    }
+  }
+
+  &.info {
+    background-color: #f0f9ff;
+    border-color: #0085eb;
+    .notification-icon {
+      color: #004b85;
+    }
+  }
+
+  &.error {
+    background-color: #fef1f1;
+    border-color: #f12828;
+    .notification-icon {
+      color: #d70e0e;
+    }
+  }
+
+  &.coach {
+    background-color: #f6f0ff;
+    border-color: #711aff;
+    .notification-icon {
+      color: #5700e5;
+    }
+  }
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.notification-icon-container {
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  justify-content: center;
+}
+.notification-icon {
+  color: #28b282;
+  width: 20px;
+  height: 20px;
+}
+
+.notification-content-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  gap: 8px;
+}
+
+.notification-content-text-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: #1f1f1f;
+  line-height: 150%;
+}
+
+.heading {
+  font-weight: 800;
+  margin: 0;
+  font-size: 14px;
+}
+
+.subheading {
+  font-weight: 400;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.link {
+  font-weight: 400;
+  color: #0085eb;
+  text-decoration: underline;
+  font-size: 14px;
+  font-family: DM Sans;
+  line-height: 125%;
+  letter-spacing: 0.14px;
+  margin: 0;
+}

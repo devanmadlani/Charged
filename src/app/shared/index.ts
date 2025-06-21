@@ -7,3 +7,8 @@ export {
   ScanCardListItemComponent,
   ScanCardListItemData,
 } from './components/scan-card-list-item/scan-card-list-item.component';
+export { ListComponent } from './components/list/list.component';
+export {
+  NotificationComponent,
+  NotificationType,
+} from './components/notification/notification.component';

@@ -36,11 +36,11 @@
 
 <ion-content class="onboarding-content" fullscreen="true">
   <div class="onboarding-container">
-    @switch(currentStep()) { @case(OnboardingStep.One) {
+    @switch(currentStep()) { @case(OnboardingStep.Welcome) {
     <div class="onboarding-step">
       <div class="icon-section">
         <hugeicons-icon
-          [icon]="Sun03Icon"
+          [icon]="ThumbsUpIcon"
           [size]="120"
           color="currentColor"
           [strokeWidth]="1.5"
@@ -58,11 +58,11 @@
         </div>
       </div>
     </div>
-    } @case(OnboardingStep.Two) {
+    } @case(OnboardingStep.Mission) {
     <div class="onboarding-step">
       <div class="icon-section">
         <hugeicons-icon
-          [icon]="Sun03Icon"
+          [icon]="UserGroupIcon"
           [size]="120"
           color="currentColor"
           [strokeWidth]="1.5"
@@ -72,61 +72,260 @@
 
       <div class="content-section">
         <h1 class="main-title">
-          {{'ONBOARDING_PAGE.CHANGE_SYSTEM_TITLE' | translate}}
+          {{'ONBOARDING_PAGE.MISSION_TITLE' | translate}}
         </h1>
         <div class="description-text">
-          <p>{{'ONBOARDING_PAGE.CHANGE_SYSTEM_DESCRIPTION_1' | translate}}</p>
-          <p>{{'ONBOARDING_PAGE.CHANGE_SYSTEM_DESCRIPTION_2' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.MISSION_DESCRIPTION_1' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.MISSION_DESCRIPTION_2' | translate}}</p>
         </div>
       </div>
+      <app-notification
+        [type]="NotificationType.Success"
+        [inline]="true"
+        [showAction]="false"
+        [subheading]="
+          'ONBOARDING_PAGE.MISSION_NOTIFICATION_TEXT' | translate
+        "
+      ></app-notification>
     </div>
-    } @case(OnboardingStep.Three) {
+    } @case(OnboardingStep.Review) {
     <div class="onboarding-step">
-      <div class="icon-section">
-        <hugeicons-icon
-          [icon]="Sun03Icon"
-          [size]="120"
-          color="currentColor"
-          [strokeWidth]="1.5"
-          class="main-icon"
-        ></hugeicons-icon>
+      <div class="avatar-section">
+        <div class="avatar-container">
+          <img src="assets/avatar-placeholder.png" alt="avatar" />
+        </div>
       </div>
 
       <div class="content-section">
-        <h1 class="main-title">
-          {{'ONBOARDING_PAGE.REVIEW_TITLE' | translate}}
-        </h1>
-        <h2 class="subtitle">
-          {{'ONBOARDING_PAGE.REVIEW_DESCRIPTION_1' | translate}}
+        <div class="star-rating">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M10.9961 0.25C12.0454 0.25 12.8719 1.04253 13.3995 2.11191L15.1616 5.66516C15.215 5.77513 15.3417 5.92998 15.5321 6.07164C15.7223 6.21315 15.9086 6.29121 16.0311 6.3118L19.2207 6.84613C20.3729 7.03973 21.3386 7.60449 21.6521 8.5879C21.9653 9.57049 21.5064 10.5916 20.6778 11.4216L20.677 11.4225L18.1991 13.9209C18.1009 14.0199 17.9909 14.2064 17.9219 14.4494C17.8534 14.6908 17.8473 14.9107 17.8784 15.0527L17.8788 15.0547L18.5877 18.1454C18.8818 19.4317 18.7843 20.7073 17.8771 21.3742C16.9667 22.0433 15.7227 21.7467 14.5925 21.0736L11.6026 19.289C11.477 19.214 11.2614 19.1532 11.0011 19.1532C10.7427 19.1532 10.5226 19.2132 10.3888 19.291L10.3869 19.2921L7.40288 21.0732C6.27405 21.7487 5.03154 22.04 4.12111 21.3702C3.21449 20.7032 3.11214 19.43 3.40711 18.1447L4.1159 15.0547L4.11633 15.0527C4.14741 14.9107 4.14133 14.6908 4.0728 14.4494C4.0038 14.2064 3.89379 14.0199 3.79558 13.9209L1.31585 11.4206C0.492646 10.5906 0.0352068 9.5704 0.345948 8.58925C0.657594 7.60525 1.62143 7.0398 2.77433 6.84606L5.96132 6.31219L5.96233 6.31202C6.07917 6.29175 6.2627 6.21456 6.45248 6.07268C6.64261 5.93054 6.76959 5.77535 6.82312 5.66516L6.82582 5.65967L8.58562 2.11097L8.58632 2.10957C9.11896 1.04108 9.94803 0.25 10.9961 0.25Z"
+              fill="#F7D308"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M10.9961 0.25C12.0454 0.25 12.8719 1.04253 13.3995 2.11191L15.1616 5.66516C15.215 5.77513 15.3417 5.92998 15.5321 6.07164C15.7223 6.21315 15.9086 6.29121 16.0311 6.3118L19.2207 6.84613C20.3729 7.03973 21.3386 7.60449 21.6521 8.5879C21.9653 9.57049 21.5064 10.5916 20.6778 11.4216L20.677 11.4225L18.1991 13.9209C18.1009 14.0199 17.9909 14.2064 17.9219 14.4494C17.8534 14.6908 17.8473 14.9107 17.8784 15.0527L17.8788 15.0547L18.5877 18.1454C18.8818 19.4317 18.7843 20.7073 17.8771 21.3742C16.9667 22.0433 15.7227 21.7467 14.5925 21.0736L11.6026 19.289C11.477 19.214 11.2614 19.1532 11.0011 19.1532C10.7427 19.1532 10.5226 19.2132 10.3888 19.291L10.3869 19.2921L7.40288 21.0732C6.27405 21.7487 5.03154 22.04 4.12111 21.3702C3.21449 20.7032 3.11214 19.43 3.40711 18.1447L4.1159 15.0547L4.11633 15.0527C4.14741 14.9107 4.14133 14.6908 4.0728 14.4494C4.0038 14.2064 3.89379 14.0199 3.79558 13.9209L1.31585 11.4206C0.492646 10.5906 0.0352068 9.5704 0.345948 8.58925C0.657594 7.60525 1.62143 7.0398 2.77433 6.84606L5.96132 6.31219L5.96233 6.31202C6.07917 6.29175 6.2627 6.21456 6.45248 6.07268C6.64261 5.93054 6.76959 5.77535 6.82312 5.66516L6.82582 5.65967L8.58562 2.11097L8.58632 2.10957C9.11896 1.04108 9.94803 0.25 10.9961 0.25Z"
+              fill="#F7D308"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M10.9961 0.25C12.0454 0.25 12.8719 1.04253 13.3995 2.11191L15.1616 5.66516C15.215 5.77513 15.3417 5.92998 15.5321 6.07164C15.7223 6.21315 15.9086 6.29121 16.0311 6.3118L19.2207 6.84613C20.3729 7.03973 21.3386 7.60449 21.6521 8.5879C21.9653 9.57049 21.5064 10.5916 20.6778 11.4216L20.677 11.4225L18.1991 13.9209C18.1009 14.0199 17.9909 14.2064 17.9219 14.4494C17.8534 14.6908 17.8473 14.9107 17.8784 15.0527L17.8788 15.0547L18.5877 18.1454C18.8818 19.4317 18.7843 20.7073 17.8771 21.3742C16.9667 22.0433 15.7227 21.7467 14.5925 21.0736L11.6026 19.289C11.477 19.214 11.2614 19.1532 11.0011 19.1532C10.7427 19.1532 10.5226 19.2132 10.3888 19.291L10.3869 19.2921L7.40288 21.0732C6.27405 21.7487 5.03154 22.04 4.12111 21.3702C3.21449 20.7032 3.11214 19.43 3.40711 18.1447L4.1159 15.0547L4.11633 15.0527C4.14741 14.9107 4.14133 14.6908 4.0728 14.4494C4.0038 14.2064 3.89379 14.0199 3.79558 13.9209L1.31585 11.4206C0.492646 10.5906 0.0352068 9.5704 0.345948 8.58925C0.657594 7.60525 1.62143 7.0398 2.77433 6.84606L5.96132 6.31219L5.96233 6.31202C6.07917 6.29175 6.2627 6.21456 6.45248 6.07268C6.64261 5.93054 6.76959 5.77535 6.82312 5.66516L6.82582 5.65967L8.58562 2.11097L8.58632 2.10957C9.11896 1.04108 9.94803 0.25 10.9961 0.25Z"
+              fill="#F7D308"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M10.9961 0.25C12.0454 0.25 12.8719 1.04253 13.3995 2.11191L15.1616 5.66516C15.215 5.77513 15.3417 5.92998 15.5321 6.07164C15.7223 6.21315 15.9086 6.29121 16.0311 6.3118L19.2207 6.84613C20.3729 7.03973 21.3386 7.60449 21.6521 8.5879C21.9653 9.57049 21.5064 10.5916 20.6778 11.4216L20.677 11.4225L18.1991 13.9209C18.1009 14.0199 17.9909 14.2064 17.9219 14.4494C17.8534 14.6908 17.8473 14.9107 17.8784 15.0527L17.8788 15.0547L18.5877 18.1454C18.8818 19.4317 18.7843 20.7073 17.8771 21.3742C16.9667 22.0433 15.7227 21.7467 14.5925 21.0736L11.6026 19.289C11.477 19.214 11.2614 19.1532 11.0011 19.1532C10.7427 19.1532 10.5226 19.2132 10.3888 19.291L10.3869 19.2921L7.40288 21.0732C6.27405 21.7487 5.03154 22.04 4.12111 21.3702C3.21449 20.7032 3.11214 19.43 3.40711 18.1447L4.1159 15.0547L4.11633 15.0527C4.14741 14.9107 4.14133 14.6908 4.0728 14.4494C4.0038 14.2064 3.89379 14.0199 3.79558 13.9209L1.31585 11.4206C0.492646 10.5906 0.0352068 9.5704 0.345948 8.58925C0.657594 7.60525 1.62143 7.0398 2.77433 6.84606L5.96132 6.31219L5.96233 6.31202C6.07917 6.29175 6.2627 6.21456 6.45248 6.07268C6.64261 5.93054 6.76959 5.77535 6.82312 5.66516L6.82582 5.65967L8.58562 2.11097L8.58632 2.10957C9.11896 1.04108 9.94803 0.25 10.9961 0.25Z"
+              fill="#F7D308"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M10.9961 0.25C12.0454 0.25 12.8719 1.04253 13.3995 2.11191L15.1616 5.66516C15.215 5.77513 15.3417 5.92998 15.5321 6.07164C15.7223 6.21315 15.9086 6.29121 16.0311 6.3118L19.2207 6.84613C20.3729 7.03973 21.3386 7.60449 21.6521 8.5879C21.9653 9.57049 21.5064 10.5916 20.6778 11.4216L20.677 11.4225L18.1991 13.9209C18.1009 14.0199 17.9909 14.2064 17.9219 14.4494C17.8534 14.6908 17.8473 14.9107 17.8784 15.0527L17.8788 15.0547L18.5877 18.1454C18.8818 19.4317 18.7843 20.7073 17.8771 21.3742C16.9667 22.0433 15.7227 21.7467 14.5925 21.0736L11.6026 19.289C11.477 19.214 11.2614 19.1532 11.0011 19.1532C10.7427 19.1532 10.5226 19.2132 10.3888 19.291L10.3869 19.2921L7.40288 21.0732C6.27405 21.7487 5.03154 22.04 4.12111 21.3702C3.21449 20.7032 3.11214 19.43 3.40711 18.1447L4.1159 15.0547L4.11633 15.0527C4.14741 14.9107 4.14133 14.6908 4.0728 14.4494C4.0038 14.2064 3.89379 14.0199 3.79558 13.9209L1.31585 11.4206C0.492646 10.5906 0.0352068 9.5704 0.345948 8.58925C0.657594 7.60525 1.62143 7.0398 2.77433 6.84606L5.96132 6.31219L5.96233 6.31202C6.07917 6.29175 6.2627 6.21456 6.45248 6.07268C6.64261 5.93054 6.76959 5.77535 6.82312 5.66516L6.82582 5.65967L8.58562 2.11097L8.58632 2.10957C9.11896 1.04108 9.94803 0.25 10.9961 0.25Z"
+              fill="#F7D308"
+            />
+          </svg>
+        </div>
+        <h2 class="subtitle review-description">
+          "{{'ONBOARDING_PAGE.REVIEW_DESCRIPTION_1' | translate}}"
+        </h2>
+        <h2 class="subtitle review-description">
+          {{'ONBOARDING_PAGE.REVIEW_DESCRIPTION_2' | translate}}
         </h2>
       </div>
     </div>
-    } @case(OnboardingStep.Email) {
+    } @case(OnboardingStep.DataSecurity) {
     <div class="onboarding-step">
       <div class="icon-section">
         <hugeicons-icon
-          [icon]="Sun03Icon"
+          [icon]="DatabaseIcon"
           [size]="120"
           color="currentColor"
           [strokeWidth]="1.5"
           class="main-icon"
         ></hugeicons-icon>
       </div>
-
       <div class="content-section">
         <h1 class="main-title">
-          {{'ONBOARDING_PAGE.EMAIL_TITLE' | translate}}
+          {{'ONBOARDING_PAGE.DATA_SECURITY_TITLE' | translate}}
         </h1>
         <div class="description-text">
-          <p>{{'ONBOARDING_PAGE.EMAIL_DESCRIPTION_1' | translate}}</p>
+          {{'ONBOARDING_PAGE.DATA_SECURITY_DESCRIPTION_1' | translate}}
         </div>
+        <app-notification
+          [type]="NotificationType.Success"
+          [inline]="true"
+          [showAction]="false"
+          [subheading]="'Bouw met 273 andere members mee aan een nieuw systeem voor gezondheid'"
+        ></app-notification>
+      </div>
+      <app-list
+        [items]="[
+            'ONBOARDING_PAGE.DATA_SECURITY_LIST_ITEM_1' | translate,
+            'ONBOARDING_PAGE.DATA_SECURITY_LIST_ITEM_2' | translate,
+            'ONBOARDING_PAGE.DATA_SECURITY_LIST_ITEM_3' | translate,
+            'ONBOARDING_PAGE.DATA_SECURITY_LIST_ITEM_4' | translate,
+            'ONBOARDING_PAGE.DATA_SECURITY_LIST_ITEM_5' | translate
+          ]"
+      ></app-list>
+      <div class="privacy-policy">
+        {{'ONBOARDING_PAGE.PRIVACY_POLICY_QUESTION' | translate}}
+        <br /><a href="/onboarding" target="_blank"
+          >{{'ONBOARDING_PAGE.PRIVACY_POLICY_LINK' | translate}}</a
+        >
+      </div>
+    </div>
+    } @case(OnboardingStep.Explanation) {
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="InfinityIcon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.EXPLANATION_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.EXPLANATION_DESCRIPTION_1' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.EXPLANATION_DESCRIPTION_2' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.EXPLANATION_DESCRIPTION_3' | translate}}</p>
+        </div>
+      </div>
+      <app-notification
+        [type]="NotificationType.Success"
+        [inline]="true"
+        [showAction]="false"
+        [subheading]="'Bouw met 273 andere members mee aan een nieuw systeem voor gezondheid'"
+      ></app-notification>
+    </div>
+    } @case(OnboardingStep.HealthPlan) {
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="HealthIcon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.HEALTH_PLAN_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.HEALTH_PLAN_DESCRIPTION_1' | translate}}</p>
+        </div>
+      </div>
+      <div class="bottom-section">
+        <ion-button
+          class="rounded-button"
+          expand="block"
+          shape="round"
+          (click)="next()"
+          [disabled]="!canProceed()"
+        >
+          {{'ONBOARDING_PAGE.START_SELF_SCAN' | translate}}
+        </ion-button>
+        <ion-button
+          class="rounded-button secondary"
+          expand="block"
+          shape="round"
+          (click)="next()"
+          [disabled]="!canProceed()"
+        >
+          {{'ONBOARDING_PAGE.CHECK_DASHBOARD' | translate}}
+        </ion-button>
+
+        <ion-button
+          class="rounded-button"
+          fill="clear"
+          class="later-button"
+          (click)="login()"
+        >
+          {{'ONBOARDING_PAGE.DISCOVER_THE_APP' | translate}}
+        </ion-button>
+      </div>
+    </div>
+
+    } @case(OnboardingStep.SelfScan) {
+    <div>
+      <div class="centered">
+        <app-survey [formId]="TYPEFORM_FORMS.feedback.id"></app-survey>
+      </div>
+    </div>
+
+    } @case(OnboardingStep.ProvideEmail) {
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="MailAccount01Icon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.PROVIDE_EMAIL_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.PROVIDE_EMAIL_DESCRIPTION_1' | translate}}</p>
+        </div>
+        <app-notification
+          [type]="NotificationType.Info"
+          [inline]="true"
+          [showAction]="false"
+          [subheading]="'Already used Charged before?\nEnter the same email to stay synced.'"
+        ></app-notification>
         <form>
-          <ion-item [class.ion-invalid]="emailError()">
-            <ion-label position="floating"
-              >{{'ONBOARDING_PAGE.EMAIL' | translate}}</ion-label
-            >
+          <ion-item
+            [class.ion-invalid]="emailError()"
+            style="--padding-start: 0; --padding-end: 0"
+          >
+            <ion-label position="floating">
+              {{'ONBOARDING_PAGE.EMAIL' | translate}}
+            </ion-label>
             <ion-input
-              [value]="email()"
               (ionInput)="onEmailChange($event.detail.value!)"
               name="email"
               type="email"
@@ -134,6 +333,7 @@
               [class.ion-invalid]="emailError()"
             ></ion-input>
           </ion-item>
+
           @if (emailError()) {
           <ion-text color="danger" class="error-text">
             {{ emailError() }}
@@ -141,12 +341,151 @@
           }
         </form>
       </div>
+      <div class="bottom-section">
+        <ion-button
+          class="rounded-button"
+          expand="block"
+          shape="round"
+          (click)="next()"
+          [disabled]="!canProceed()"
+        >
+          {{'ONBOARDING_PAGE.CONTINUE' | translate}}
+        </ion-button>
+        <ion-button
+          class="rounded-button"
+          fill="clear"
+          class="later-button"
+          (click)="login()"
+        >
+          {{'ONBOARDING_PAGE.SKIP' | translate}}
+        </ion-button>
+      </div>
     </div>
 
-    } @case(OnboardingStep.Four) {
-    <div>
-      <div class="centered">
-        <app-survey [formId]="TYPEFORM_FORMS.feedback.id"></app-survey>
+    } @case(OnboardingStep.OpenEmail) {
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="MailOpenIcon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.OPEN_EMAIL_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.OPEN_EMAIL_DESCRIPTION_1' | translate}}</p>
+          <p>{{'ONBOARDING_PAGE.OPEN_EMAIL_DESCRIPTION_2' | translate}}</p>
+        </div>
+      </div>
+      <div class="bottom-section open-email-actions">
+        <ion-button
+          class="rounded-button"
+          expand="block"
+          shape="round"
+          (click)="next()"
+          [disabled]="!canProceed()"
+          color="primary"
+        >
+          {{'ONBOARDING_PAGE.OPEN_MAIL_APP' | translate}}
+          <hugeicons-icon
+            [icon]="LinkSquare01Icon"
+            [size]="22"
+            color="currentColor"
+            [strokeWidth]="1.5"
+            class="hugeicon-inline button-icon"
+          ></hugeicons-icon>
+        </ion-button>
+        <div class="email-actions">
+          <ion-button
+            class="rounded-button"
+            fill="clear"
+            class="later-button"
+            (click)="login()"
+          >
+            {{'ONBOARDING_PAGE.RESEND_EMAIL' | translate}}
+          </ion-button>
+          <div class="divider">|</div>
+          <ion-button
+            class="rounded-button"
+            fill="clear"
+            class="later-button"
+            (click)="next()"
+          >
+            {{'ONBOARDING_PAGE.CHANGE_EMAIL' | translate}}
+          </ion-button>
+        </div>
+      </div>
+    </div>
+    } @case(OnboardingStep.ChangeEmail) {
+    <div class="onboarding-step">
+      <div class="icon-section">
+        <hugeicons-icon
+          [icon]="MailEdit01Icon"
+          [size]="120"
+          color="currentColor"
+          [strokeWidth]="1.5"
+          class="main-icon"
+        ></hugeicons-icon>
+      </div>
+      <div class="content-section">
+        <h1 class="main-title">
+          {{'ONBOARDING_PAGE.CHANGE_EMAIL_TITLE' | translate}}
+        </h1>
+        <div class="description-text">
+          <p>{{'ONBOARDING_PAGE.CHANGE_EMAIL_DESCRIPTION_1' | translate}}</p>
+          <p>
+            {{'ONBOARDING_PAGE.CHANGE_EMAIL_DESCRIPTION_2' | translate}} {{
+            email() }}
+          </p>
+        </div>
+        <form>
+          <ion-item
+            [class.ion-invalid]="emailError()"
+            style="--padding-start: 0; --padding-end: 0"
+          >
+            <ion-label position="floating">
+              {{'ONBOARDING_PAGE.NEW_EMAIL_ADDRESS' | translate}}
+            </ion-label>
+            <ion-input
+              (ionInput)="onEmailChange($event.detail.value!)"
+              name="email"
+              type="email"
+              required
+              [class.ion-invalid]="emailError()"
+            ></ion-input>
+          </ion-item>
+
+          @if (emailError()) {
+          <ion-text color="danger" class="error-text">
+            {{ emailError() }}
+          </ion-text>
+          }
+        </form>
+      </div>
+      <div class="bottom-section">
+        <ion-button
+          class="rounded-button"
+          expand="block"
+          shape="round"
+          (click)="next()"
+          [disabled]="!canProceed()"
+        >
+          {{'ONBOARDING_PAGE.CONTINUE' | translate}}
+        </ion-button>
+        <ion-button
+          class="rounded-button"
+          fill="clear"
+          class="later-button"
+          (click)="previous()"
+        >
+          {{'ONBOARDING_PAGE.BACK' | translate}}
+        </ion-button>
       </div>
     </div>
     } @case(OnboardingStep.Final) {
@@ -154,7 +493,7 @@
     <div class="onboarding-step">
       <div class="icon-section">
         <hugeicons-icon
-          [icon]="Sun03Icon"
+          [icon]="UserGroupIcon"
           [size]="120"
           color="currentColor"
           [strokeWidth]="1.5"
@@ -176,18 +515,21 @@
       {{ message() }}
     </ion-text>
     }
-
+    <!-- TODO: Change (click) back to sendMagicLink() -->
     <ion-button
       class="rounded-button"
       expand="block"
       shape="round"
-      (click)="sendMagicLink()"
+      (click)="next()"
       [disabled]="isLoading()"
     >
       {{ isLoading() ? 'Sending...' : 'Send Magic Link' }}
     </ion-button>
-
-    } } @if(currentStep()!== OnboardingStep.Final) {
+    } @case(OnboardingStep.Final) { } } @if(currentStep()!==
+    OnboardingStep.Final && currentStep()!== OnboardingStep.OpenEmail &&
+    currentStep()!== OnboardingStep.HealthPlan && currentStep()!==
+    OnboardingStep.ChangeEmail && currentStep()!== OnboardingStep.ProvideEmail)
+    {
     <div class="bottom-section">
       <ion-button
         class="rounded-button"

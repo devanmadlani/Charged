@@ -1,0 +1,24 @@
+<div class="notification" [class.inline]="inline()" [class]="type()">
+  <div class="notification-content">
+    <div class="notification-icon-container">
+      <hugeicons-icon
+        [icon]="getIcon()"
+        [size]="20"
+        class="notification-icon"
+        color="currentColor"
+        [strokeWidth]="1.5"
+      ></hugeicons-icon>
+    </div>
+    <div class="notification-content-text">
+      <div class="notification-content-text-title">
+        @if (heading) {
+        <div class="heading">{{ heading }}</div>
+        }
+        <div class="subheading">{{ subheading }}</div>
+      </div>
+      @if (showAction()) {
+      <a class="link" href="#">Action</a>
+      }
+    </div>
+  </div>
+</div>

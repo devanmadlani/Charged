@@ -1,0 +1,16 @@
+<ion-list>
+  <div class="list-item-container" *ngFor="let item of items">
+    <div class="list-icon">
+      <hugeicons-icon
+        [icon]="Tick02Icon"
+        [size]="24"
+        color="currentColor"
+        [strokeWidth]="1.5"
+        class="hugeicon-inline"
+      ></hugeicons-icon>
+    </div>
+    <ion-item class="list-item">
+      <div class="description-text list-item-text" [innerHTML]="item"></div>
+    </ion-item>
+  </div>
+</ion-list>
